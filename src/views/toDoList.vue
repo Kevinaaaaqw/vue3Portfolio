@@ -1,6 +1,8 @@
 <script setup lang="tsx">
-import { ref, inject, computed, reactive } from 'vue'
+import {} from 'vue-router'
+import { ref, inject, computed, reactive, type Ref } from 'vue'
 import {
+  type FormRules,
   ElForm,
   ElFormItem,
   ElButton,
@@ -17,6 +19,8 @@ import { sendElNotification } from '@/commonFunction/elnotification'
 const { toDoListSearch, toDoListInsert, toDoListModify, toDoListDelete } = toDoListapi
 
 //畫面控制
+const loading = inject('loading') as Ref<boolean>
+
 const dialogModel1 = ref(false)
 const dialogTitleName1 = ref('')
 
@@ -35,10 +39,13 @@ const fronmData1 = reactive<any>({
 
 //表單2號
 const formRef2 = ref()
-const fronmData2 = reactive<any>({
+const formData2 = reactive<any>({
   list_name: '',
   done_yn: '',
   description: ''
+})
+const formRule2 = ref<FormRules>({
+  list_name: [{ required: true, message: '此欄位必填' }]
 })
 
 //表格一號
@@ -67,16 +74,17 @@ const doButtonFunction1 = async () => {
     description: fronmData1.description,
     done_yn: fronmData1.done_yn
   }
-  let r: any = await toDoListSearch(d)
-  if (r.status === 200) {
-    tableDataAll1.value = [...r.data]
-  }
+  loading.value = true
+  await toDoListSearch(d).then(async (res) => {
+    tableDataAll1.value = [...res.data]
+  })
+  loading.value = false
 }
 
 //新增按鈕
 const doButtonFunction2 = async () => {
-  for (const i in fronmData2) {
-    fronmData2[i] = ''
+  for (const i in formData2) {
+    formData2[i] = ''
   }
   dialogTitleName1.value = '新增'
   dialogModel1.value = true
@@ -86,16 +94,17 @@ const doButtonFunction2 = async () => {
 const doButtonFunction3 = async (data: any) => {
   dialogTitleName1.value = '編輯'
   for (const i in data.row) {
-    fronmData2[i] = data.row[i]
+    formData2[i] = data.row[i]
   }
   dialogModel1.value = true
 }
 
 //表單1刪除按鈕
 const doButtonFunction4 = async (data: any) => {
+  dialogTitleName1.value = '刪除'
   dialogTitleName2.value = '刪除'
   for (const i in data.row) {
-    fronmData2[i] = data.row[i]
+    formData2[i] = data.row[i]
   }
   dialogModel2.value = true
 }
@@ -107,14 +116,28 @@ const doButtonFunction5 = async () => {
 
 //彈出視窗1確定後跳出最終確認視窗
 const doButtonFunction6 = async () => {
-  if (dialogTitleName1.value === '新增') {
-    dialogTitleName2.value = '確定新增'
-    dialogBody2.value = '確定新增該筆資料嗎?'
-  } else {
-    dialogTitleName2.value = '確定編輯'
-    dialogBody2.value = '確定編輯該筆資料嗎?'
-  }
-  dialogModel2.value = true
+  formRef2.value.validate((isAllow: boolean, message: any) => {
+    console.log(message)
+    if (isAllow) {
+      if (dialogTitleName1.value === '新增') {
+        dialogTitleName2.value = '確定新增'
+        dialogBody2.value = '確定新增該筆資料嗎?'
+      } else {
+        dialogTitleName2.value = '確定編輯'
+        dialogBody2.value = '確定編輯該筆資料嗎?'
+      }
+      dialogModel2.value = true
+    } else {
+      switch (message.list_name[0]?.field) {
+        case 'list_name':
+          sendElNotification('warning', '待辦事項欄位為必填')
+          break
+
+        default:
+          break
+      }
+    }
+  })
 }
 
 //彈出視窗2取消回
@@ -125,9 +148,11 @@ const doButtonFunction7 = async () => {
 //彈出視窗2確定後做事
 const doButtonFunction8 = async () => {
   let d: any = {}
-  for (const i in fronmData2) {
-    d[i] = fronmData2[i]
+  for (const i in formData2) {
+    d[i] = formData2[i]
   }
+  loading.value = true
+
   if (dialogTitleName1.value === '新增') {
     await toDoListInsert(d)
       .then(async () => {
@@ -178,7 +203,34 @@ const doButtonFunction8 = async () => {
         sendElNotification('error', '刪除失敗' + error)
       })
   }
+
+  loading.value = false
   dialogModel2.value = false
+}
+
+//人數統計資料表排序
+const tableDataSortChange1 = ({ prop, order }: any) => {
+  tableDataAll1.value.sort(compare(prop, order))
+}
+//排序的fuction
+const compare: any = (propertyName: any, sort: any) => {
+  return function (obj1, obj2) {
+    let value1 = obj1[propertyName]
+    let value2 = obj2[propertyName]
+    if (!value2) {
+      return -1
+    }
+    if (typeof value1 === 'string' && typeof value2 === 'string') {
+      const res = value1.localeCompare(value2, 'zh')
+      return sort === 'ascending' ? res : -res
+    } else {
+      if (value1 <= value2) {
+        return sort === 'ascending' ? -1 : 1
+      } else if (value1 > value2) {
+        return sort === 'ascending' ? 1 : -1
+      }
+    }
+  }
 }
 
 //CSS回傳區
@@ -249,18 +301,23 @@ const cellStyle = () => {
   <el-button class="ms-2 mb-2" type="primary" @click="doButtonFunction2()">新增</el-button>
   <el-table
     :header-cell-style="headerCellStyle"
+    @sort-change="tableDataSortChange1"
     :cell-style="cellStyle"
     empty-text="查無資料"
     border
     class="mb-4 mt-3"
     :data="tableData1"
   >
-    <el-table-column prop="list_name" label="待辦事項" sortable />
-    <el-table-column prop="done_yn" label="已完成" sortable>
+    <el-table-column prop="list_name" width="200px" label="待辦事項" sortable />
+    <el-table-column prop="done_yn" width="158px" label="已完成" sortable>
       <template #default="scope"> {{ scope.row.done_yn === 'Y' ? '已完成' : '未完成' }}</template>
     </el-table-column>
     <el-table-column prop="description" label="詳細資訊" sortable />
-    <el-table-column prop="update_time" label="更新時間" sortable />
+    <el-table-column prop="update_time" width="110px" label="更新時間" sortable>
+      <template #default="scope">
+        {{ new Date(scope.row.update_time).toLocaleDateString() }}</template
+      >
+    </el-table-column>
     <el-table-column fixed="right" prop="" width="158px" label="操作">
       <template #default="scope">
         <el-button
@@ -289,7 +346,7 @@ const cellStyle = () => {
     <el-pagination
       v-model:page-size="tableDataRecord1"
       v-model:current-page="tableDataCurrentPage"
-      :page-sizes="[10, 20, 30, 40, 50]"
+      :page-sizes="[5, 10, 20, 30, 40, 50]"
       background
       :pager-count="11"
       layout="total,sizes,prev, pager, next,jumper"
@@ -309,9 +366,10 @@ const cellStyle = () => {
       </h3>
     </template>
     <el-form
+      :rules="formRule2"
       @submit.prevent
       ref="formRef2"
-      :model="fronmData2"
+      :model="formData2"
       label-position="left"
       label-width="fit-content"
       class="flex flex-wrap w-100%"
@@ -322,7 +380,7 @@ const cellStyle = () => {
           label="待辦事項："
           prop="list_name"
         >
-          <el-input v-model="fronmData2.list_name" />
+          <el-input v-model="formData2.list_name" />
         </el-form-item>
       </el-col>
       <el-col class="p-2" :span="12">
@@ -331,7 +389,7 @@ const cellStyle = () => {
           label="詳細資訊："
           prop="description"
         >
-          <el-input v-model="fronmData2.description" />
+          <el-input v-model="formData2.description" />
         </el-form-item>
       </el-col>
       <el-col class="p-2" :span="12">
@@ -340,7 +398,7 @@ const cellStyle = () => {
           label="是否完成："
           prop="description"
         >
-          <el-select v-model="fronmData2.done_yn" clearable>
+          <el-select v-model="formData2.done_yn" clearable>
             <el-option v-for="i in option1" :key="i.label" :value="i.value" :label="i.label" />
           </el-select>
         </el-form-item>
