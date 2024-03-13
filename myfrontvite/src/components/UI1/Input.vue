@@ -28,7 +28,9 @@ const color = computed(() => {
       v-model="model"
     />
     <label for="account-input" :class="labelCss">
-      <slot name="default">{{ props.title }}</slot>
+      <div style="width: 100%; overflow-y: hidden">
+        <slot name="default">{{ props.title }}</slot>
+      </div>
     </label>
   </div>
 </template>

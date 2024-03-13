@@ -19,7 +19,7 @@ public partial class OLDemoContext : DbContext
     {
         modelBuilder.Entity<to_do_list>(entity =>
         {
-            entity.HasKey(e => e.list_id).HasName("PK__to_do_li__7B9EF1357D6819FB");
+            entity.HasKey(e => e.list_id).HasName("PK_todolist");
         });
 
         OnModelCreatingPartial(modelBuilder);

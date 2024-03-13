@@ -3080,11 +3080,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\user\\Desktop\\kevin\\myback\\myback\\myback\\myback.csproj",
+      "projectUniqueName": "C:\\Users\\user\\Desktop\\vue3Portfolio\\myback\\myback\\myback.csproj",
       "projectName": "myback",
-      "projectPath": "C:\\Users\\user\\Desktop\\kevin\\myback\\myback\\myback\\myback.csproj",
+      "projectPath": "C:\\Users\\user\\Desktop\\vue3Portfolio\\myback\\myback\\myback.csproj",
       "packagesPath": "C:\\Users\\user\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\user\\Desktop\\kevin\\myback\\myback\\myback\\obj\\",
+      "outputPath": "C:\\Users\\user\\Desktop\\vue3Portfolio\\myback\\myback\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\user\\AppData\\Roaming\\NuGet\\NuGet.Config",

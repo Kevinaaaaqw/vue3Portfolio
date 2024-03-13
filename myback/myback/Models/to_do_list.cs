@@ -14,7 +14,7 @@ public partial class to_do_list
     public int list_id { get; set; }
 
     [Required]
-    [StringLength(30)]
+    [StringLength(50)]
     [Unicode(false)]
     public string list_name { get; set; }
 
@@ -22,13 +22,22 @@ public partial class to_do_list
     [StringLength(1)]
     public string done_yn { get; set; }
 
-    [Column(TypeName = "date")]
+    [Column(TypeName = "datetime")]
     public DateTime update_time { get; set; }
 
-    [Column(TypeName = "date")]
+    [Column(TypeName = "datetime")]
     public DateTime createdate_time { get; set; }
 
+    [Required]
     [StringLength(150)]
     [Unicode(false)]
     public string description { get; set; }
+
+    [Column(TypeName = "datetime")]
+    public DateTime? sdate_time { get; set; }
+
+    [Column(TypeName = "datetime")]
+    public DateTime? edate_time { get; set; }
+
+    public int? quadrants_status { get; set; }
 }

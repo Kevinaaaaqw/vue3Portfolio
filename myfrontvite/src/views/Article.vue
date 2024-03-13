@@ -54,9 +54,29 @@ const a = ref()
     </template>
   </UI1window>
   <UI1window title="輸入框 UI1input">
-    <UI1input class="mb-2" v-model="input.input1" title="標題" />
-    <UI1input class="mb-2" v-model="input.input2" placeholder="輸入提示" />
-    <UI1input class="mb-2" v-model="input.input3" placeholder="輸入提示" title="標題" />
-    <template #description> </template>
+    <UI1input class="mb-2" v-model="input.input1" title="標題1" />
+    <UI1input class="mb-2" v-model="input.input2" placeholder="輸入提示1" />
+    <UI1input class="mb-2" v-model="input.input3" placeholder="輸入提示2" title="標題2" />
+    <template #description>
+      <div class="mb-5">
+        在元素中加入'title'屬性來定義輸入框標題<br />
+        <span class="color-blue"
+          >< UI1input class="mb-2" v-model="input.input1" title="標題1" / ></span
+        ><br />
+      </div>
+      <div class="mb-5">
+        在元素中加入'placeholder'屬性來定義輸入框提示<br />
+        <span class="color-blue"
+          >< UI1input class="mb-2" v-model="input.input2" placeholder="輸入提示1" / ></span
+        ><br />
+      </div>
+      <div class="mb-5">
+        在元素中加入'title' 'placeholder'同時輸入則標題會固定在左上方<br />
+        <span class="color-blue"
+          >< UI1input class="mb-2" v-model="input.input3" placeholder="輸入提示2" title="標題2" /
+          ></span
+        ><br />
+      </div>
+    </template>
   </UI1window>
 </template>
