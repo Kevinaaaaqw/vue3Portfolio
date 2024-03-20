@@ -1,4 +1,4 @@
-<script setup lang="tsx">
+<script setup lang="ts">
 import {} from 'vue-router'
 import { ref, inject, computed, reactive, type Ref } from 'vue'
 import {
@@ -214,9 +214,9 @@ const tableDataSortChange1 = ({ prop, order }: any) => {
 }
 //排序的fuction
 const compare: any = (propertyName: any, sort: any) => {
-  return function (obj1, obj2) {
-    let value1 = obj1[propertyName]
-    let value2 = obj2[propertyName]
+  return function (obj1:any, obj2:any) {
+    let value1:string = obj1[propertyName]
+    let value2:string = obj2[propertyName]
     if (!value2) {
       return -1
     }

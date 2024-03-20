@@ -1,16 +1,16 @@
 <script setup lang="ts">
 import { RouterLink, RouterView } from 'vue-router'
 import { ElConfigProvider, ElRow, ElCol } from 'element-plus'
-import zhTw from 'element-plus/dist/locale/zh-tw.mjs'
-import { getScreenType } from '@/commonFunction/screenType/screenType'
+import zhTw from 'element-plus/es/locale/lang/zh-tw.mjs'
+// import { getScreenType } from '@/commonFunction/screenType/screenType'
 import { Menu } from './menu'
 import { ref, provide } from 'vue'
-const screenType = ref<any>(getScreenType())
+// const screenType = ref<any>(getScreenType())
 const loading = ref<any>(false)
-window.addEventListener('resize', () => {
-  screenType.value = getScreenType()
-})
-provide('screenType', screenType)
+// window.addEventListener('resize', () => {
+//   screenType.value = getScreenType()
+// })
+// provide('screenType', screenType)
 provide('loading', loading)
 </script>
 <template>

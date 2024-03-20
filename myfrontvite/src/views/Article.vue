@@ -16,7 +16,6 @@ const input = reactive({
 onMounted(async () => {
   // let r = aaa({props.page})
 })
-const a = ref()
 </script>
 <template>
   <UI1window title="邊框 UI1window"

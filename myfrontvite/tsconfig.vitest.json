@@ -7,6 +7,5 @@
 
     "lib": [],
     "types": ["node", "jsdom"]
-  },
-  "include": ["src/**/*.ts"]
+  }
 }
