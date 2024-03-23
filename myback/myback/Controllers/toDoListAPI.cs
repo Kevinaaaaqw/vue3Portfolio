@@ -168,7 +168,7 @@ namespace myback.Controllers
 
         // 新增API型別
         public record insertAPIType(insertAPIToDoListType parameter);
-        public record insertAPIToDoListType(string list_name, string? description, string done_yn);
+        public record insertAPIToDoListType(string list_name, string? description, string done_yn, DateTime? sdate_time, DateTime? edate_time);
 
         // 編輯API型別
         public record modifyAPIType(modifyAPIToDoListType parameter);
