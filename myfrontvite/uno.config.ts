@@ -11,7 +11,10 @@ export default defineConfig({
     //自訂主題
     theme:{
         colors:{
-            'title':'#87CEEB'
+            'sub':'#87CEEB',
+            'base':'#002366',
+            'bg':'#CCCCCC',
+            'subbg':'#F5F5F5',
         }
     }
 })

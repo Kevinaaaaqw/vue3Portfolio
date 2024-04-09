@@ -7,6 +7,9 @@ import App from './App.vue'
 import router from './router'
 import 'uno.css'
 
+const { worker } = await import('./mock/browser')
+worker.start()
+
 const app = createApp(App)
 
 app.use(createPinia())
