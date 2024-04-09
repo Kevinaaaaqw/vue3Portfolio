@@ -1,8 +1,7 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import ToDoList from '@/views/toDoList.vue'
-import Article from '../views/Article.vue'
-console.log(import.meta.env.BASE_URL)
-console.log(import.meta.url)
+import Article from '@/views/Article.vue'
+import NotFoundPage from '@/views/forum/notFoundPage.vue'
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
@@ -39,12 +38,11 @@ const router = createRouter({
       // path: "*",
       path: "/:catchAll(.*)",
       name: "NotFound",
-      component: ToDoList,
+      component: NotFoundPage,
       meta: {
         requiresAuth: false
       }
     }
-
   ]
 })
 
