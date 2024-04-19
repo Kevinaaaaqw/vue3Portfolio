@@ -1,7 +1,8 @@
 <script setup lang="ts">
-import { ref, computed } from 'vue'
+import { ref, computed, onMounted } from 'vue'
 const model = defineModel()
-const props = defineProps<{ title?: string; placeholder?: string }>()
+const props = defineProps<{ title?: string; placeholder?: string; name: string; password?: boolean; id: string | number }>()
+const id = ref<string>(props.id.toString())
 const labelCss = computed(() => {
   if (model.value || props.placeholder) {
     return 'account-text-span1'
@@ -16,17 +17,16 @@ const color = computed(() => {
     return 'black'
   }
 })
+const inputType = computed(() => {
+  return props.password ? 'password' : 'text'
+})
+
 </script>
 <template>
+  <input v-for="i in 2" class="w-0 absolute opacity-0" type="password" />
   <div class="d-flex w-full position-relative align-items-center">
-    <input
-      id="account-input"
-      class="w-full input pt-3 pb-3 ps-2 pe-2"
-      autocomplete="off"
-      type="text"
-      :placeholder="props.placeholder"
-      v-model="model"
-    />
+    <input :id="id" :name="props.name" class="w-full input pt-3 pb-3 ps-2 pe-2" :type="inputType"
+      :placeholder="props.placeholder" v-model="model" />
     <label for="account-input" :class="labelCss">
       <div style="width: 100%; overflow-y: hidden">
         <slot name="default">{{ props.title }}</slot>
@@ -35,6 +35,25 @@ const color = computed(() => {
   </div>
 </template>
 <style scoped>
+input:-webkit-autofill,
+input:-webkit-autofill:focus {
+  transition: background-color 0s 600000s, color 0s 600000s !important;
+}
+
+:-webkit-autofill {
+  animation-name: onAutoFillStart;
+}
+
+:not(:-webkit-autofill) {
+  animation-name: onAutoFillCancel;
+}
+
+@keyframes onAutoFillCancel {
+  from {}
+
+  to {}
+}
+
 .d-flex {
   display: flex;
 }
@@ -62,12 +81,15 @@ const color = computed(() => {
 .pb-2 {
   padding-bottom: 0.5rem;
 }
+
 .ps-1 {
   padding-left: 0.25rem;
 }
+
 .pe-1 {
   padding-right: 0.25rem;
 }
+
 .pt-3 {
   padding-top: 0.75rem;
 }
@@ -75,9 +97,11 @@ const color = computed(() => {
 .pb-3 {
   padding-bottom: 0.75rem;
 }
+
 .ps-2 {
   padding-left: 0.5rem;
 }
+
 .pe-2 {
   padding-right: 0.5rem;
 }
@@ -108,7 +132,7 @@ const color = computed(() => {
   font-size: 12px;
 }
 
-input:focus ~ .account-text-span {
+input:focus~.account-text-span {
   transform: translate(0%, 0%);
   background-color: white;
   font-size: 12px;
@@ -117,7 +141,8 @@ input:focus ~ .account-text-span {
   transition: 0.2s ease-in-out;
   color: rgb(0, 174, 255);
 }
-input:focus ~ .account-text-span1 {
+
+input:focus~.account-text-span1 {
   background-color: white;
   font-size: 12px;
   top: -8px;
@@ -129,6 +154,7 @@ input:focus {
   border: 1px solid rgb(0, 174, 255);
   border-radius: 8px;
 }
+
 /* 
 input:-webkit-autofill,
 input:-webkit-autofill:hover,

@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { computed, defineProps } from 'vue'
 
-const props = defineProps<{ type?: 'primary' | 'danger' | 'warning' }>()
+const props = defineProps<{ type?: 'primary' | 'danger' | 'warning'; class?: string }>()
 
 const buttonType = computed(() => {
   let bgColor = ''
@@ -21,44 +21,53 @@ const buttonType = computed(() => {
       bgColor = 'white'
       break
   }
-  return 'ms-1 me-1 ps-4 pe-4 pt-2 pb-2 b-rd ' + bgColor
+  return 'ms-1 me-1 ps-4 pe-4 pt-2 pb-2 b-rd border-none cursor-pointer' + ' ' + props.class || bgColor
 }) 
 </script>
 <template>
-  <button :class="buttonType"><slot>按鈕</slot></button>
+  <button :class="buttonType">
+    <slot>按鈕</slot>
+  </button>
 </template>
 <style scoped>
 .primary {
   background-color: #369de8;
   border: none;
 }
+
 .primary:hover {
   background-color: #369ee88d;
   border: none;
   cursor: pointer;
 }
+
 .danger {
   background-color: #f01010;
   border: none;
 }
+
 .danger:hover {
   background-color: rgba(240, 16, 16, 0.5);
   border: none;
   cursor: pointer;
 }
+
 .warning {
   background-color: #ffa600;
   border: none;
 }
+
 .warning:hover {
   background-color: #ffa6008d;
   border: none;
   cursor: pointer;
 }
+
 .white {
   background-color: #ffffff;
   border: solid rgba(0, 0, 0, 0.183) 1px;
 }
+
 .white:hover {
   background-color: #0dcae711;
   cursor: pointer;

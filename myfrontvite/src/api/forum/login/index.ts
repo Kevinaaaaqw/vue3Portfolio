@@ -1,18 +1,27 @@
 import axios from 'axios'
 
-export const loginApi = (domainName: string, appPoolName: string) => {
-    const toDoListSearch = async (data: object) => {
-        const url = domainName + appPoolName + '/vue3API/toDoListAPI/search'
+export const login = (getToken: Function, domainName: string, appPoolName: string) => {
+    const checkLogin = async () => {
+        const url = domainName + appPoolName + '/check_login'
+        const forumToken = await getToken()
         const newdata = {
-            parameter: data
-
+            forumToken
         }
-        // return await axios.post(url, newdata)
-        return
+        return await axios.post(url, newdata)
+    }
+
+    const doLogin = async (data) => {
+        const url = domainName + appPoolName + '/do_login'
+        const forumToken = await getToken()
+        const newdata = {
+            ...data
+        }
+        return await axios.post(url, newdata)
     }
 
     const login = {
-        toDoListSearch: toDoListSearch, //搜尋
+        checkLogin: checkLogin, //搜尋
+        doLogin: doLogin, //登入
     }
 
     return login

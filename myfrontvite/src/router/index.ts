@@ -1,6 +1,7 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import ToDoList from '@/views/toDoList.vue'
 import Article from '@/views/Article.vue'
+import Login from '@/views/forum/loginPage.vue'
 import NotFoundPage from '@/views/forum/notFoundPage.vue'
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -33,6 +34,12 @@ const router = createRouter({
           title: route.params.title
         }
       }
+    },
+    //論壇頁面
+    {
+      path: '/login',
+      name: 'login',
+      component: Login
     },
     {
       // path: "*",

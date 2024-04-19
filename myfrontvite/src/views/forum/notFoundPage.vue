@@ -1,14 +1,14 @@
 <script setup lang="ts">
-import {useRouter} from 'vue-router'
-const router = useRouter()
+// import { useRouter } from 'vue-router'
+import { inject, ref, watch } from 'vue'
+// const router = useRouter()
 
-const returnPage = ()=>{
-    setTimeout(()=>{
-        console.log(router)
-        router.push('./')
-    },5000)
-}
-returnPage()
+// const returnPage = ()=>{
+//     setTimeout(()=>{
+//         router.push('./')
+//     },5000)
+// }
+// returnPage()
 </script>
 <template>
     404
