@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { useRouter } from 'vue-router'
+import { useRouter, RouterLink } from 'vue-router'
 import { inject, ref, watch, unref, reactive, type Ref, onMounted } from 'vue'
 import { UI1input, UI1checkbox, UI1button } from '@/components/UI1'
 import { loginApi } from '@/api/forum/index'
@@ -50,7 +50,7 @@ const sendLogin = async (data: typeof logText) => {
 <template>
     <div id="a" class="w100% flex justify-center flex-wrap bg-sub rd-1">
         <div class="w70% flex justify-center flex-wrap mt-10">
-            <div class="w-300px rd-1 bg-white ps-5 pe-5 pb-5 m-5 children:mt-5 children:mb-5">
+            <div class="w-300px rd-1 bg-white ps-5 pe-5 pb-5 m-5 mb-50 children:mt-5 children:mb-5">
                 <div class="text-center w-full">
                     <div class=" ">
                         <img src="@/components/icons/logo3.png" alt="">
@@ -61,8 +61,9 @@ const sendLogin = async (data: typeof logText) => {
                     <UI1input :name="i.title" v-model="i.ref" :title="i.title" :password="i.password" :id="index" />
                     <div class="text-red font-600">{{ i.message }}</div>
                 </div>
-                <div>
+                <div class="flex justify-between items-center">
                     <UI1checkbox lable="保持登入狀態" v-model="keepLogin" />
+                    <RouterLink to="/register">註冊</RouterLink>
                 </div>
                 <div>
                     <UI1button class="w-100% bg-base hover:bg-base/50 text-white" @click="() => {
@@ -73,7 +74,7 @@ const sendLogin = async (data: typeof logText) => {
 
             </div>
         </div>
-        <div class="h-300px w-100%">
-        </div>
+        <!-- <div class="h-300px w-100%">
+        </div> -->
     </div>
 </template>

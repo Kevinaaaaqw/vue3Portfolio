@@ -3,13 +3,14 @@ import ToDoList from '@/views/toDoList.vue'
 import Article from '@/views/Article.vue'
 import Login from '@/views/forum/loginPage.vue'
 import NotFoundPage from '@/views/forum/notFoundPage.vue'
+import Hmoe from '@/views/forum/home.vue'
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
     {
       path: '/',
       name: 'home',
-      component: ToDoList
+      component: Hmoe
     },
     {
       path: '/toDoList',

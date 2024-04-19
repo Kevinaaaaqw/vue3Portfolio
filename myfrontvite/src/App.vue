@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { RouterView, useRouter } from 'vue-router'
 import { Menu } from './forumMenu'
-import { ref, provide, watch, inject } from 'vue'
+import { ref, provide, watch, inject, computed } from 'vue'
 import { loginApi } from '@/api/forum/index'
 
 const logStatus = ref(false)
@@ -23,12 +23,19 @@ watch(currentRoute, () => {
     logStatus.value = false
   })
 })
+const isFull = computed(() => currentRoute?.value?.fullPath === '/' ? '' : 'max-w-900px')
+
 </script>
 <template>
-    <Menu />
-    <div class="flex justify-center">
-      <div class="max-w-900px w-100%">
-        <RouterView />
-      </div>
+  <Menu />
+  <div class="flex justify-center">
+    <div :class="'w-100%' + ' ' + isFull">
+      <RouterView />
     </div>
+  </div>
 </template>
+<style>
+a {
+  text-decoration: none;
+}
+</style>
