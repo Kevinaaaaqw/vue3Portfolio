@@ -12,7 +12,7 @@ const { currentRoute } = useRouter()
 watch(currentRoute, () => {
   useMember().loginCheck()
 })
-const isFull = computed(() => currentRoute?.value?.fullPath === '/' ? '' : 'max-w-900px')
+const isFull = computed(() => currentRoute?.value?.fullPath === '/' ? '' : 'max-w-1000px')
 
 </script>
 <template>
