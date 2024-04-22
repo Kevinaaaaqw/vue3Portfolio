@@ -27,7 +27,7 @@ const inputType = computed(() => {
   <div :class="'d-flex w-full position-relative align-items-center' + ' ' + props.class">
     <input :id="id" :name="props.name" class="w-full input pt-3 pb-3 ps-2 pe-2" :type="inputType"
       :placeholder="props.placeholder" v-model="model" />
-    <label for="account-input" :class="labelCss">
+    <label :for="id" :class="labelCss">
       <div style="width: 100%; overflow-y: hidden">
         <slot name="default">{{ props.title }}</slot>
       </div>
