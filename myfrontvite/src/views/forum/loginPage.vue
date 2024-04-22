@@ -1,21 +1,22 @@
 <script setup lang="ts">
-import { useRouter, RouterLink } from 'vue-router'
-import { inject, ref, watch, unref, reactive, type Ref, onMounted } from 'vue'
+import { ref, watch, reactive, computed } from 'vue'
 import { UI1input, UI1checkbox, UI1button } from '@/components/UI1'
 import { loginApi } from '@/api/forum/index'
 import { useCookies } from 'vue3-cookies'
+import { useMember } from '@/stores/member'
+import { useRouter } from 'vue-router'
+
+const router = useRouter()
 
 const cookie = useCookies().cookies
-const router = useRouter()//路由
-const isLogin = inject('logStatus') as Ref //是否登入
-//回首頁
-const goHome = () => {
-    if (unref(isLogin)) {
+const member = useMember()
+const isLogin = computed(() => member.logStatus) //是否登入
+
+watch(isLogin, (a) => {
+    //回首頁
+    if (a) {
         router.push('./')
     }
-}
-watch(isLogin, () => {
-    goHome()
 }, { immediate: true })
 
 //登入帳號密碼
@@ -39,8 +40,8 @@ const sendLogin = async (data: typeof logText) => {
     }).then((i) => {
         cookie.remove('forumToken')
         keepLogin.value ? cookie.set('forumToken', i.data?.token) : window.sessionStorage.setItem('forumToken', i.data?.token)
-        router.push('./')
-    }).catch(() => {
+        router.push('/')
+    }).catch((e) => {
         data[0].message = '帳號或密碼錯誤'
     })
 
@@ -61,9 +62,9 @@ const sendLogin = async (data: typeof logText) => {
                     <UI1input :name="i.title" v-model="i.ref" :title="i.title" :password="i.password" :id="index" />
                     <div class="text-red font-600">{{ i.message }}</div>
                 </div>
-                <div class="flex justify-between items-center">
+                <div class="flex justify-between items-center hover:children:text-blue hover:children:cursor-pointer">
                     <UI1checkbox lable="保持登入狀態" v-model="keepLogin" />
-                    <RouterLink to="/register">註冊</RouterLink>
+                    <div @click="() => { router.push('register') }">註冊</div>
                 </div>
                 <div>
                     <UI1button class="w-100% bg-base hover:bg-base/50 text-white" @click="() => {

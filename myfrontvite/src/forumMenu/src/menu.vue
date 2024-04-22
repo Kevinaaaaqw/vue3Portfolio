@@ -2,6 +2,7 @@
 import { ref, inject, computed, watch } from 'vue'
 import { useRouter } from 'vue-router'
 import Avatar from '@/components/avatar'
+import { useMember } from '@/stores/member'
 
 //取得路由功能
 const router = useRouter()
@@ -10,8 +11,7 @@ const toPage = (link: string) => {
   router.push(link)
 }
 
-const logStatus = ref(inject('logStatus'))
-
+const logStatus = computed(() => useMember().logStatus)
 
 </script>
 <template>
@@ -26,7 +26,7 @@ const logStatus = ref(inject('logStatus'))
         <div @click="() => { toPage('./forum') }">
           <h3>論壇</h3>
         </div>
-        <div v-if="!logStatus" class="flex" @click="() => { toPage('./login') }">
+        <div v-if="!logStatus" class="flex" @click="() => { toPage('/login') }">
           <img class="object-contain w40px" src="../../components/icons/login.png" alt="">
           <h3>登入</h3>
         </div>
