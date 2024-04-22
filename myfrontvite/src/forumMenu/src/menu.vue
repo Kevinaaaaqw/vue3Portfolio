@@ -11,6 +11,11 @@ const toPage = (link: string) => {
   router.push(link)
 }
 
+//去論壇並初始化分類
+const toForum = () => {
+  toPage('./forum')
+}
+
 const logStatus = computed(() => useMember().logStatus)
 
 </script>
@@ -23,7 +28,7 @@ const logStatus = computed(() => useMember().logStatus)
         <div @click="() => { toPage('./') }">
           <h3>首頁</h3>
         </div>
-        <div @click="() => { toPage('./forum') }">
+        <div @click="() => { toForum() }">
           <h3>論壇</h3>
         </div>
         <div v-if="!logStatus" class="flex" @click="() => { toPage('/login') }">

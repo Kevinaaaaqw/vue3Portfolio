@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { RouterView, useRouter } from 'vue-router'
 import { Menu } from './forumMenu'
+import ForunFooter from './forumFooter'
 import { ref, provide, watch, computed } from 'vue'
 import { useMember } from '@/stores/member'
 
@@ -21,6 +22,7 @@ const isFull = computed(() => currentRoute?.value?.fullPath === '/' ? '' : 'max-
       <RouterView />
     </div>
   </div>
+  <ForunFooter />
 </template>
 <style>
 a {

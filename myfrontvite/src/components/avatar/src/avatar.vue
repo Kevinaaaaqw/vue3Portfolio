@@ -27,10 +27,19 @@ const clearMember = () => {
 //轉跳會員專區
 const toMemberPage = () => {
   showCloseBG.value = false
+  closeDiv()
   router.push('/register')
 }
 
-//解決
+
+const showDiv = ref(true)
+//解決進入會員頁面div慢縮動畫
+const closeDiv = () => {
+  showDiv.value = false
+  setTimeout(() => {
+    showDiv.value = true
+  }, 500);
+}
 
 </script>
 <template>
@@ -42,7 +51,7 @@ const toMemberPage = () => {
       class="border-solid border-1 border-base rd-10 w40px h40px flex bg-bg items-center justify-center relative">
       <img class="object-contain w-60%" src="@/components/icons/user.png" alt="">
     </div>
-    <div
+    <div v-show="showDiv"
       :class="'absolute w-100px mt-2 rd-1 bg-white right-0 z-2 flex overflow-hidden justify-center time border-1 border-solid transition-duration-500' + ' ' + blockHeight"
       style="cursor:default;">
       <div class="cursor-pointer hover:children:text-blue children:pt-2 last-children:pb-2">

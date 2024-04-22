@@ -20,7 +20,6 @@ export const useMember = defineStore('memberInfo', () => {
     //檢查是否登入
     const loginCheck = () => {
         resetAccount()
-        console.log(logStatus.value)
         checkLogin().then((res) => {
             logStatus.value = res.data?.account ? true : false
             account.value = res.data?.account
