@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { ref, computed, onMounted } from 'vue'
 const model = defineModel()
-const props = defineProps<{ title?: string; placeholder?: string; name: string; password?: boolean; id: string | number; class?: string }>()
+const props = defineProps<{ title?: string; placeholder?: string; name: string; password?: boolean; id: string | number; class?: string; keydownEnter?: Function }>()
 const id = ref<string>(props.id.toString())
 const labelCss = computed(() => {
   if (model.value || props.placeholder) {
@@ -25,8 +25,8 @@ const inputType = computed(() => {
 <template>
   <input v-for="i in 2" class="w-0 absolute opacity-0" type="password" />
   <div :class="'d-flex w-full position-relative align-items-center' + ' ' + props.class">
-    <input :id="id" :name="props.name" class="w-full input pt-3 pb-3 ps-2 pe-2" :type="inputType"
-      :placeholder="props.placeholder" v-model="model" />
+    <input @keydown.enter="() => { props.keydownEnter && props.keydownEnter() }" :id="id" :name="props.name"
+      class="w-full input pt-3 pb-3 ps-2 pe-2" :type="inputType" :placeholder="props.placeholder" v-model="model" />
     <label :for="id" :class="labelCss">
       <div style="width: 100%; overflow-y: hidden">
         <slot name="default">{{ props.title }}</slot>
