@@ -10,7 +10,7 @@ export const login = (getToken: Function, domainName: string, appPoolName: strin
         return await axios.post(url, newdata)
     }
 
-    const doLogin = async (data) => {
+    const doLogin = async (data: object) => {
         const url = domainName + appPoolName + '/do_login'
         const forumToken = await getToken()
         const newdata = {
