@@ -2,8 +2,6 @@
 import { ref } from 'vue'
 const props = defineProps<{ img?: string, categoryName?: string, introdece?: string, src?: string }>()
 
-console.log(props.introdece)
-console.log(props.introdece?.length > 200)
 const text = ref()
 
 </script>
