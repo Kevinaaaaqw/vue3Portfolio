@@ -6,8 +6,14 @@ export const forumCategory = (getToken: Function, domainName: string, appPoolNam
         return await axios.get(url)
     }
 
+    const getRecommendedAarticle = async () => {
+        const url = domainName + appPoolName + '/get_recommended_article'
+        return await axios.get(url)
+    }
+
     const forumCategory = {
-        getCategory: getCategory //取得分類
+        getCategory: getCategory, //取得分類
+        getRecommendedAarticle: getRecommendedAarticle //取得推薦文章
     }
 
     return forumCategory
