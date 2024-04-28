@@ -10,7 +10,7 @@ const labelCss = computed(() => {
     return 'account-text-span'
   }
 })
-const color = computed(() => {
+const borderCss = computed(() => {
   if (model.value) {
     return 'rgb(0, 174, 255)'
   } else {
@@ -26,7 +26,7 @@ const inputType = computed(() => {
   <input v-for="i in 2" class="w-0 absolute opacity-0" type="password" />
   <div :class="'d-flex w-full position-relative align-items-center' + ' ' + props.class">
     <input @keydown.enter="() => { props.keydownEnter && props.keydownEnter() }" :id="id" :name="props.name"
-      class="w-full input pt-3 pb-3 ps-2 pe-2" :type="inputType" :placeholder="props.placeholder" v-model="model" />
+      :class="'w-full input pt-3 pb-3 ps-2 pe-2'" :type="inputType" :placeholder="props.placeholder" v-model="model" />
     <label :for="id" :class="labelCss">
       <div style="width: 100%; overflow-y: hidden">
         <slot name="default">{{ props.title }}</slot>
@@ -125,7 +125,7 @@ input:-webkit-autofill:focus {
 
 .account-text-span1 {
   position: absolute;
-  background-color: white;
+  /* background-color: white; */
   top: -8px;
   left: 5px;
   transition: 0.2s ease-in-out;
@@ -134,24 +134,30 @@ input:-webkit-autofill:focus {
 
 input:focus~.account-text-span {
   transform: translate(0%, 0%);
-  background-color: white;
+  background-color: rgba(255, 255, 255, 0);
   font-size: 12px;
   left: 5px;
   top: -8px;
   transition: 0.2s ease-in-out;
-  color: rgb(0, 174, 255);
+  font-weight: bolder;
+  color: black;
 }
 
 input:focus~.account-text-span1 {
-  background-color: white;
+  /* background-color: white; */
   font-size: 12px;
   top: -8px;
   transition: 0.2s ease-in-out;
-  color: rgb(0, 174, 255);
+  color: black;
+}
+
+input {
+  /* border: 0px solid rgb(0, 174, 255); */
+  border-radius: 8px;
 }
 
 input:focus {
-  border: 1px solid rgb(0, 174, 255);
+  /* border: 0px solid rgb(0, 174, 255); */
   border-radius: 8px;
 }
 
