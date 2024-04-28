@@ -2,17 +2,15 @@
 import { ref } from 'vue'
 const props = defineProps<{ img?: string, categoryName?: string, introdece?: string, src?: string }>()
 
-const text = ref()
-
 </script>
 <template>
     <div :title="props.introdece"
-        class="w-450px h-450px m-3 border-solid border-1px border-base rd-1 cursor-pointer hover:border-2px hover:border-sub box-border overflow-hidden">
+        class="w-450px h-450px m-3 border-solid border-1px border-base box-border rd-1 cursor-pointer hover:border-2px hover:border-2px overflow-hidden">
         <div class="w-full h-270px bg-sub/10">
-            <img v-if="props.src" :src="props.src" alt="" class="w-full h-full object-contain " loading="lazy">
+            <img v-if="props.src" :src="props.src" alt="" class="w-full h-full object-contain rd-1" loading="lazy">
         </div>
         <div class="border-1px border-b-solid border-base"></div>
-        <div class="w-full h-180px overflow-hidden text-ellipsis children:ms-2 children:me-2">
+        <div class="w-full h-180px bg-subbg overflow-hidden text-ellipsis text-base children:ms-2 children:me-2">
             <div class="">
                 <h2>{{ props.categoryName }}</h2>
             </div>
@@ -23,4 +21,4 @@ const text = ref()
             </div>
         </div>
     </div>
-</template>
+</template> 
