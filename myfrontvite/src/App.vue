@@ -17,7 +17,7 @@ const isFull = computed(() => currentRoute?.value?.fullPath === '/' ? '' : 'max-
 </script>
 <template>
   <Menu />
-  <div class="flex justify-center">
+  <div class="flex justify-center bg-sub">
     <div :class="'w-100%' + ' ' + isFull">
       <RouterView />
     </div>
