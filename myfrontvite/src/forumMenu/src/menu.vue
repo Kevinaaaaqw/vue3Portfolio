@@ -13,7 +13,7 @@ const toPage = (link: string) => {
 
 //去論壇並初始化分類
 const toForum = () => {
-  toPage('./forum')
+  toPage('/forum')
 }
 
 const logStatus = computed(() => useMember().logStatus)

@@ -15,13 +15,13 @@ const toCategoryPage = () => {
 }
 
 const toAllPage = () => {
-    router.currentRoute.value.path === '/forum/all' ? router.go(0) : router.push('/forum/all')
+    router.currentRoute.value.path === '/forum/article?ac=0' ? router.go(0) : router.push('/forum/article?ac=0')
 }
 
 </script>
 <template>
     <div class="flex justify-between items-center">
-        <div class="flex children:ms-2 children:me-2 children:cursor-pointer hover:children:text-sub">
+        <div class="flex children:ms-2 children:me-2 children:cursor-pointer hover:children:text-base/50">
             <div @click="() => { toCategoryPage() }">
                 <h3>分類</h3>
             </div>
