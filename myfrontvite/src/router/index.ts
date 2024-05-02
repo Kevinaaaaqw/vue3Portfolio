@@ -1,6 +1,7 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import ToDoList from '@/views/toDoList.vue'
 import Forum from '@/views/forum/forum.vue'
+import ForumArticle from '@/views/forum/article.vue'
 import Article from '@/views/Article.vue'
 import Login from '@/views/forum/loginPage.vue'
 import NotFoundPage from '@/views/forum/notFoundPage.vue'
@@ -42,6 +43,11 @@ const router = createRouter({
       path: '/forum',
       name: 'forum',
       component: Forum
+    },
+    {
+      path: '/forum/article',
+      name: 'article',
+      component: ForumArticle
     },
     {
       path: '/login',

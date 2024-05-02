@@ -31,7 +31,7 @@ getRecommendedAarticle().then((item) => {
 const router = useRouter()
 // 轉文章分類頁面
 const toArticleCategory = (path?: string | number) => {
-    router.push('/forum/article?ac=' + path?.toString())
+    router.push(`/forum/article?ac=${path?.toString()}&page=1`)
 }
 
 // 轉文章分類頁面
