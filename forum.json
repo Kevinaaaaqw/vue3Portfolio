@@ -1,0 +1,326 @@
+{
+  "uuid": "23da2b60-d5b2-419c-b66f-a29a01319513",
+  "lastMigration": 32,
+  "name": "Forum",
+  "endpointPrefix": "myback",
+  "latency": 0,
+  "port": 3001,
+  "hostname": "",
+  "folders": [],
+  "routes": [
+    {
+      "uuid": "4dd5d4f3-1641-4941-b0d0-a9a26092cfce",
+      "type": "http",
+      "documentation": "檢查是否登入",
+      "method": "post",
+      "endpoint": "check_login",
+      "responses": [
+        {
+          "uuid": "e32a858e-63a9-4586-b6c4-9cfcef6e2201",
+          "body": "{\n  \"account\": \"zxc123\"\n}",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "確定是誰",
+          "headers": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [
+            {
+              "target": "body",
+              "modifier": "$.forumToken",
+              "value": "d90780e4",
+              "invert": false,
+              "operator": "equals"
+            }
+          ],
+          "rulesOperator": "AND",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true,
+          "crudKey": "id",
+          "callbacks": []
+        },
+        {
+          "uuid": "ef9dfa10-c81a-43af-9f64-26e959c4906e",
+          "body": "{\n  \"message\":\"參數錯誤\"\n}",
+          "latency": 0,
+          "statusCode": 400,
+          "label": "",
+          "headers": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [
+            {
+              "target": "body",
+              "modifier": "$.forumToken",
+              "value": "d90780e4",
+              "invert": true,
+              "operator": "equals"
+            }
+          ],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": false,
+          "crudKey": "id",
+          "callbacks": []
+        }
+      ],
+      "responseMode": null
+    },
+    {
+      "uuid": "5bc7b07c-de51-4786-abb3-a018776ff88f",
+      "type": "http",
+      "documentation": "",
+      "method": "post",
+      "endpoint": "do_login",
+      "responses": [
+        {
+          "uuid": "d4faf768-2bdc-492c-abcf-4dfb3add1c81",
+          "body": "{\"message\":\"驗證成功\",\n  \"token\":\"d90780e4\"\n}",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [
+            {
+              "target": "body",
+              "modifier": "$.account",
+              "value": "zxc123",
+              "invert": false,
+              "operator": "equals"
+            },
+            {
+              "target": "body",
+              "modifier": "$.password",
+              "value": "zxc123",
+              "invert": false,
+              "operator": "equals"
+            }
+          ],
+          "rulesOperator": "AND",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true,
+          "crudKey": "id",
+          "callbacks": []
+        },
+        {
+          "uuid": "bdbfe6a6-585f-4b96-ab4c-b050757ba9c6",
+          "body": "{\"message\":\"驗證失敗，帳號密碼錯誤\"}",
+          "latency": 0,
+          "statusCode": 400,
+          "label": "帳號密碼錯誤",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [
+            {
+              "target": "body",
+              "modifier": "$.account",
+              "value": "zxc123",
+              "invert": true,
+              "operator": "equals"
+            },
+            {
+              "target": "body",
+              "modifier": "$.password",
+              "value": "zxc123",
+              "invert": true,
+              "operator": "equals"
+            }
+          ],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": false,
+          "crudKey": "id",
+          "callbacks": []
+        }
+      ],
+      "responseMode": null
+    },
+    {
+      "uuid": "f98ab290-9594-4666-9d46-cd229183b5c0",
+      "type": "http",
+      "documentation": "",
+      "method": "get",
+      "endpoint": "get_category",
+      "responses": [
+        {
+          "uuid": "9015fafb-5f4f-4792-9c18-5d7c6bffd540",
+          "body": "{\n  \"categoryList\": [{{#repeat (queryParam 'total' '9')}}\n    {\n      \"article_category\": \"{{add  1 @index}}\",\n      \"article_category_name\":\"{{faker 'word.adjective' length=10 }}\",\n      \"article_category_img\":\"{{faker 'image.url' width=450 height=270}}\",\n      \"article_category_introduce\":\"{{faker 'lorem.words' min=5 max=50}}\"\n    }\n    {{/repeat}}\n  ]\n}",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true,
+          "crudKey": "id",
+          "callbacks": []
+        }
+      ],
+      "responseMode": null
+    },
+    {
+      "uuid": "f7aabe73-40b6-4656-861d-9817e2875d20",
+      "type": "http",
+      "documentation": "",
+      "method": "get",
+      "endpoint": "get_recommended_article",
+      "responses": [
+        {
+          "uuid": "567fd692-3b44-476e-bf89-d6a2de64392b",
+          "body": "{\n  \"articleList\":[{{#repeat (queryParam 'total' '3')}}\n    {\n      \"article_category\":\"{{ faker 'number.int' 9 }}\",\n      \"forum_article_id\":\"{{ faker 'number.int' 100 }}\",\n      \"forum_reply_id\":\"0\",\n      \"article_category_name\":\"{{faker 'word.adjective' length=10 }}\",\n      \"forum_item_title\":\"{{faker 'lorem.words' 8 }}\",\n      \"account\":\"{{faker 'person.middleName' }}{{ faker 'number.int' min=10000 max=99999 }}\",\n      \"creat_time\":\"{{faker 'date.anytime'}}\",\n      \"forum_article_content\":\"{{faker 'lorem.words' 1000}}\",\n      \"comment\":\"{{faker 'number.int' 10000}}\"\n    }\n  {{/repeat}}]\n}",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true,
+          "crudKey": "id",
+          "callbacks": []
+        }
+      ],
+      "responseMode": null
+    },
+    {
+      "uuid": "98725e9f-4994-455c-b7fb-a77311de80d2",
+      "type": "http",
+      "documentation": "C.php?bsn=109&snA=63620&tnum=1&bPage=2      如何取得參數",
+      "method": "post",
+      "endpoint": "articles_list",
+      "responses": [
+        {
+          "uuid": "2ee79831-324c-4748-842f-9cdb1c8a5911",
+          "body": "{\n  \"ac\":\"{{body 'ac'}}\",\n  \"page\":\"{{body 'page'}}\",\n  \"list\":[\n    {{#repeat (queryParam 'total' '30')}}\n      {\n        \"article_category\":\"{{body 'ac'}}\",\n        \"forum_article_id\":\"\"\n        \n      }\n    {{/repeat}}]\n}",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true,
+          "crudKey": "id",
+          "callbacks": []
+        }
+      ],
+      "responseMode": null
+    }
+  ],
+  "rootChildren": [
+    {
+      "type": "route",
+      "uuid": "4dd5d4f3-1641-4941-b0d0-a9a26092cfce"
+    },
+    {
+      "type": "route",
+      "uuid": "5bc7b07c-de51-4786-abb3-a018776ff88f"
+    },
+    {
+      "type": "route",
+      "uuid": "f98ab290-9594-4666-9d46-cd229183b5c0"
+    },
+    {
+      "type": "route",
+      "uuid": "f7aabe73-40b6-4656-861d-9817e2875d20"
+    },
+    {
+      "type": "route",
+      "uuid": "98725e9f-4994-455c-b7fb-a77311de80d2"
+    }
+  ],
+  "proxyMode": false,
+  "proxyHost": "",
+  "proxyRemovePrefix": false,
+  "tlsOptions": {
+    "enabled": false,
+    "type": "CERT",
+    "pfxPath": "",
+    "certPath": "",
+    "keyPath": "",
+    "caPath": "",
+    "passphrase": ""
+  },
+  "cors": true,
+  "headers": [
+    {
+      "key": "Content-Type",
+      "value": "application/json"
+    },
+    {
+      "key": "Access-Control-Allow-Origin",
+      "value": "*"
+    },
+    {
+      "key": "Access-Control-Allow-Methods",
+      "value": "GET,POST,PUT,PATCH,DELETE,HEAD,OPTIONS"
+    },
+    {
+      "key": "Access-Control-Allow-Headers",
+      "value": "Content-Type, Origin, Accept, Authorization, Content-Length, X-Requested-With"
+    }
+  ],
+  "proxyReqHeaders": [
+    {
+      "key": "",
+      "value": ""
+    }
+  ],
+  "proxyResHeaders": [
+    {
+      "key": "",
+      "value": ""
+    }
+  ],
+  "data": [
+    {
+      "uuid": "a9fe8499-ad1e-4873-86eb-bed0ce295705",
+      "id": "7ccb",
+      "name": "New data",
+      "documentation": "",
+      "value": ""
+    }
+  ],
+  "callbacks": []
+}
