@@ -227,7 +227,7 @@
       "responses": [
         {
           "uuid": "2ee79831-324c-4748-842f-9cdb1c8a5911",
-          "body": "{\n  \"ac\":\"{{body 'ac'}}\",\n  \"page\":\"{{body 'page'}}\",\n  \"list\":[\n    {{#repeat (queryParam 'total' '30')}}\n      {\n        \"article_category\":\"{{body 'ac'}}\",\n        \"forum_article_id\":\"{{add 30 (multiply  @index -1) }}\",\n        \"forum_reply_id\":\"1\",\n        \"forum_item_title\":\"{{lorem  min=5 max=20 }}\"\n      }\n    {{/repeat}}]\n}",
+          "body": "{\n  \"ac\":\"{{body 'ac'}}\",\n  \"page\":\"{{body 'page'}}\",\n  \"list\":[\n    {{#repeat (queryParam 'total' '30')}}\n      {\n        \"article_category\":\"{{body 'ac'}}\",\n        \"forum_article_id\":\"{{add 30 (multiply  @index -1) }}\",\n        \"forum_reply_id\":\"0\",\n        \"forum_item_title\":\"{{lorem  min=5 max=20 }}\",\n        \"forum_article_content\":\"{{lorem  min=10 max=30 }}\",\n        \"creat_time\":\"{{faker 'date.past' refDate='2019/09/08' years=5 }}\",\n        \"update_time\":\"{{faker 'date.past' years=4 }}\",\n        \"isdelete\":{{ faker 'datatype.boolean' probability=1}}\n      }\n    {{/repeat}}]\n}",
           "latency": 0,
           "statusCode": 200,
           "label": "",
