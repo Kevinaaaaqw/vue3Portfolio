@@ -24,8 +24,10 @@ getCategory().then((item) => {
     Array.isArray(item.data.categoryList) && (categoryList.value = item.data.categoryList)
 })
 
+const isLoadingFinish = ref<boolean>(false)
+
 getRecommendedAarticle().then((item) => {
-    Array.isArray(recommendedArticleList.value) && (recommendedArticleList.value = item.data.articleList)
+    Array.isArray(recommendedArticleList.value) && (recommendedArticleList.value = item.data.articleList)(isLoadingFinish.value = true)
 })
 
 const router = useRouter()
@@ -41,7 +43,7 @@ const toWritings = (ac: string | number, ai: string | number) => {
 
 </script>
 <template>
-    <div class="p-2">
+    <div class="p-2 min-h-600px">
         <ForumHead />
         <Slogan />
         <div class="grid justify-center mb-5 lg:grid-cols-2">
@@ -49,7 +51,7 @@ const toWritings = (ac: string | number, ai: string | number) => {
                 :categoryName="i?.article_category_name" :introdece="i?.article_category_introduce" ulr="/aaa"
                 @click="() => { toArticleCategory(i?.article_category) }" />
         </div>
-        <div class="text-base mb-5">
+        <div v-show="isLoadingFinish" class="text-base mb-5">
             <h2>最新文章</h2>
         </div>
         <div class="grid grid-cols-3 mb-5">

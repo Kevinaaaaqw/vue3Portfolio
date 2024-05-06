@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("myback")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+780f286aea91f897c8f430cf00576bbc3ae56108")]
 [assembly: System.Reflection.AssemblyProductAttribute("myback")]
 [assembly: System.Reflection.AssemblyTitleAttribute("myback")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
