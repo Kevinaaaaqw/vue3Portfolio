@@ -169,14 +169,14 @@
       "responses": [
         {
           "uuid": "9015fafb-5f4f-4792-9c18-5d7c6bffd540",
-          "body": "{\n  \"categoryList\": [{{#repeat (queryParam 'total' '9')}}\n    {\n      \"article_category\": \"{{add  1 @index}}\",\n      \"article_category_name\":\"{{faker 'word.adjective' length=10 }}\",\n      \"article_category_img\":\"{{faker 'image.url' width=450 height=270}}\",\n      \"article_category_introduce\":\"{{faker 'lorem.words' min=5 max=50}}\"\n    }\n    {{/repeat}}\n  ]\n}",
-          "latency": 0,
+          "body": "{\n  \"categoryList\": [{{#repeat (queryParam 'total' '9')}}\n    {\n      \"article_category\": \"{{add  1 @index}}\",\n      \"article_category_name\":\"{{ oneOf (array 'Vue討論版' 'javascript討論版''php討論版''c#討論版''linux討論版''react討論版''資訊安全討論版''css討論版''專案管理討論版') 0}}\",\n      \"article_category_img\":\"{{faker 'image.url' width=450 height=270}}\",\n      \"article_category_introduce\":\"{{faker 'lorem.words' min=5 max=50}}\"\n    }\n    {{/repeat}}\n  ]\n}",
+          "latency": 1000,
           "statusCode": 200,
           "label": "",
           "headers": [],
           "bodyType": "INLINE",
           "filePath": "",
-          "databucketID": "",
+          "databucketID": "7ccb",
           "sendFileAsBody": false,
           "rules": [],
           "rulesOperator": "OR",
@@ -199,7 +199,7 @@
         {
           "uuid": "567fd692-3b44-476e-bf89-d6a2de64392b",
           "body": "{\n  \"articleList\":[{{#repeat (queryParam 'total' '3')}}\n    {\n      \"article_category\":\"{{ faker 'number.int' 9 }}\",\n      \"forum_article_id\":\"{{ faker 'number.int' 100 }}\",\n      \"forum_reply_id\":\"0\",\n      \"article_category_name\":\"{{faker 'word.adjective' length=10 }}\",\n      \"forum_item_title\":\"{{faker 'lorem.words' 8 }}\",\n      \"account\":\"{{faker 'person.middleName' }}{{ faker 'number.int' min=10000 max=99999 }}\",\n      \"creat_time\":\"{{faker 'date.anytime'}}\",\n      \"forum_article_content\":\"{{faker 'lorem.words' 1000}}\",\n      \"comment\":\"{{faker 'number.int' 10000}}\"\n    }\n  {{/repeat}}]\n}",
-          "latency": 0,
+          "latency": 1000,
           "statusCode": 200,
           "label": "",
           "headers": [],
@@ -227,7 +227,7 @@
       "responses": [
         {
           "uuid": "2ee79831-324c-4748-842f-9cdb1c8a5911",
-          "body": "{\n  \"ac\":\"{{body 'ac'}}\",\n  \"page\":\"{{body 'page'}}\",\n  \"list\":[\n    {{#repeat (queryParam 'total' '30')}}\n      {\n        \"article_category\":\"{{body 'ac'}}\",\n        \"forum_article_id\":\"\"\n        \n      }\n    {{/repeat}}]\n}",
+          "body": "{\n  \"ac\":\"{{body 'ac'}}\",\n  \"page\":\"{{body 'page'}}\",\n  \"list\":[\n    {{#repeat (queryParam 'total' '30')}}\n      {\n        \"article_category\":\"{{body 'ac'}}\",\n        \"forum_article_id\":\"{{add 30 (multiply  @index -1) }}\",\n        \"forum_reply_id\":\"1\",\n        \"forum_item_title\":\"{{lorem  min=5 max=20 }}\"\n      }\n    {{/repeat}}]\n}",
           "latency": 0,
           "statusCode": 200,
           "label": "",
@@ -317,9 +317,9 @@
     {
       "uuid": "a9fe8499-ad1e-4873-86eb-bed0ce295705",
       "id": "7ccb",
-      "name": "New data",
+      "name": "article_category_name",
       "documentation": "",
-      "value": ""
+      "value": "[\"Vue 討論版\",\"javascript 討論版\",\"php 討論版\",\"c# 討論版\",\"linux 討論版\",\"react 討論版\",\"資訊安全 討論版\",\"css 討論版\",\"專案管理 討論版\"]"
     }
   ],
   "callbacks": []
