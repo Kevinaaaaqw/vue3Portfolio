@@ -25,7 +25,7 @@ const time = computed(() => {
 </script>
 <template>
     <div
-        class="w-300px h-300px border-solid border-1px border-base rd-1 bg-subbg cursor-pointer box-border overflow-hidden hover:border-2px">
+        class="w-300px h-300px border-solid border-1px border-base rd-1 bg-subbg cursor-pointer box-border overflow-hidden hover:outline-auto">
         <!-- 發文帳號、時間 -->
         <div class="flex ps-3 font-size-14px children:me-3 children:children:font-bold text-base/50">
             <div>
