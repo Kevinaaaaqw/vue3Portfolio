@@ -1,7 +1,8 @@
 <script setup lang="ts">
 import { ref, inject, computed, watch } from 'vue'
 import { useRouter } from 'vue-router'
-import DropDownList from "@/components/dropDownList/dropDownList.vue";
+import SubMenu from "@/components/sub-menu.vue";
+import HorizontalMenu from "@/components/horizontalMenu.vue";
 
 const position = ref({ x: 0, y: 0 });
 const dragging = ref(false);
@@ -28,11 +29,30 @@ const startDrag = (event) => {
     window.addEventListener('mouseup', stopDrag);
 };
 
+
+const menuHandle = ref(false)
+const handleUpdateShow = (newValue: boolean) => {
+    menuHandle.value = newValue;
+}
+
 </script>
 <template>
     <div class="h-100vh w-100vw relative">
         <div class="absolute" :style="{ top: `${position.y}px`, left: `${position.x}px` }" @mousedown="startDrag">
-            <DropDownList />
+            <SubMenu :show="menuHandle" @update:show="handleUpdateShow">
+                <template #title>
+                    第一層
+                </template>
+                <HorizontalMenu>
+                    <template #title>
+                        第二層第二層
+                    </template>
+                    第三層第三層第三層
+                </HorizontalMenu>
+            </SubMenu>
+
         </div>
+        <button @click="menuHandle = true">open</button>
+        <button @click="menuHandle = false">close</button>
     </div>
 </template>
