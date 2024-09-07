@@ -16,6 +16,7 @@
     "mock": "vite --mode mock"
   },
   "dependencies": {
+    "@fortawesome/fontawesome-free": "^6.6.0",
     "element-plus": "^2.6.1",
     "pinia": "^2.1.7",
     "unocss": "^0.58.6",
