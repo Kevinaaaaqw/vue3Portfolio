@@ -4,7 +4,7 @@ import { useRouter } from 'vue-router'
 
 </script>
 <template>
-    <div class="relative">
+    <div class="relative hover:text-deep_slate_green p-10px duration-300">
         <slot />
     </div>
 </template>
