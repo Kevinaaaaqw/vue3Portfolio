@@ -20,7 +20,7 @@ const toggleSecondLayer = ref(props.show || false)
 // 檢測第二層展開收納
 const handleSecondLayer = computed(() => {
     if (!secondLayerRef.value?.textContent?.trim() || !toggleSecondLayer.value) return 'max-h-0' + ' ' + secondLayerHidden.value
-    let height = `max-h-[${secondLayerRef.value.scrollHeight}px] ${secondLayerHidden.value}`
+    let height = `max-h-1000vh ${secondLayerHidden.value}`
     return height
 })
 
@@ -48,24 +48,27 @@ watch(() => secondLayerRect.value, (newV, oldV) => {
 const updateRect = () => {
     secondLayerRef.value && (secondLayerRect.value = secondLayerRef.value.getBoundingClientRect())
 }
-const updateRectInterval = setInterval(updateRect, 100);
+const updateRectTrigger = () => {
+    setTimeout(() => {
+        if (toggleSecondLayer.value) {
+            updateRect()
+            updateRectTrigger()
+        }
+    }, 100)
+}
+
 watch(toggleSecondLayer, (newV) => {
     if (newV) {
-        updateRectInterval
+        updateRectTrigger()
         setTimeout(() => {
             secondLayerHidden.value = ''
         }, 300);
     }
     else {
-        clearInterval(updateRectInterval)
         secondLayerHidden.value = 'overflow-hidden'
     }
 })
 
-// 卸載時確保監聽移除
-onBeforeUnmount(() => {
-    clearInterval(updateRectInterval)
-})
 
 const toggle = () => {
     const newValue = !toggleSecondLayer.value;
@@ -76,11 +79,11 @@ const toggle = () => {
 </script>
 <template>
     <div class="relative">
-        <div v-if="$slots.title" class="p-10px rounded-md cursor-pointer duration-1000" @click="toggle">
+        <div v-if="$slots.title" class="p-10px rounded-md cursor-pointer" @click="toggle">
             <slot name="title" />
         </div>
         <div v-if="$slots.default" ref="secondLayerRef"
-            class="min-w-full text-nowrap shadow absolute rounded-md bottom-0 translate-y-100% box-border duration-300"
+            class="min-w-full text-nowrap shadow absolute rounded-md bottom-0 translate-y-100% box-border duration-300 ease-in-out"
             :class="[secondLayerPosition, handleSecondLayer]">
             <slot />
         </div>
