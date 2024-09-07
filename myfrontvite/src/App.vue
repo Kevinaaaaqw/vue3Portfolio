@@ -1,9 +1,11 @@
 <script setup lang="ts">
 import { RouterView, useRouter } from 'vue-router'
 import { Menu, PortfolioMenu } from './forumMenu'
+import { Menu, PortfolioMenu } from './forumMenu'
 import ForunFooter from './forumFooter'
 import { ref, provide, watch, computed } from 'vue'
 import { useMember } from '@/stores/member'
+import { routerPath } from '@/router/routerPath'
 import { routerPath } from '@/router/routerPath'
 
 //API 功能區
