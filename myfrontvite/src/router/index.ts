@@ -10,6 +10,11 @@ const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
     {
+      path: '/',
+      name: 'portfolioSelf',
+      component: () => import('../views/portfolioSelf/index.vue')
+    },
+    {
       path: '/toDoList',
       name: 'toDoList',
       component: () => import('../views/toDoList.vue')
