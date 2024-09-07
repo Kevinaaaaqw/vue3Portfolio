@@ -1,32 +1,32 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\kevin\\OneDrive\\Documents\\GitHub\\vue3Portfolio\\myback\\myback\\myback.csproj": {}
+    "C:\\Users\\kevin\\OneDrive\\桌面\\vue3Portfolio\\myback\\myback\\myback.csproj": {}
   },
   "projects": {
-    "C:\\Users\\kevin\\OneDrive\\Documents\\GitHub\\vue3Portfolio\\myback\\myback\\myback.csproj": {
+    "C:\\Users\\kevin\\OneDrive\\桌面\\vue3Portfolio\\myback\\myback\\myback.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\kevin\\OneDrive\\Documents\\GitHub\\vue3Portfolio\\myback\\myback\\myback.csproj",
+        "projectUniqueName": "C:\\Users\\kevin\\OneDrive\\桌面\\vue3Portfolio\\myback\\myback\\myback.csproj",
         "projectName": "myback",
-        "projectPath": "C:\\Users\\kevin\\OneDrive\\Documents\\GitHub\\vue3Portfolio\\myback\\myback\\myback.csproj",
+        "projectPath": "C:\\Users\\kevin\\OneDrive\\桌面\\vue3Portfolio\\myback\\myback\\myback.csproj",
         "packagesPath": "C:\\Users\\kevin\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\kevin\\OneDrive\\Documents\\GitHub\\vue3Portfolio\\myback\\myback\\obj\\",
+        "outputPath": "C:\\Users\\kevin\\OneDrive\\桌面\\vue3Portfolio\\myback\\myback\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\kevin\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
-          "net7.0"
+          "net8.0"
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
-          "net7.0": {
-            "targetAlias": "net7.0",
+          "net8.0": {
+            "targetAlias": "net8.0",
             "projectReferences": {}
           }
         },
@@ -42,20 +42,26 @@
         }
       },
       "frameworks": {
-        "net7.0": {
-          "targetAlias": "net7.0",
+        "net8.0": {
+          "targetAlias": "net8.0",
           "dependencies": {
             "Microsoft.AspNetCore.OpenApi": {
               "target": "Package",
-              "version": "[7.0.10, )"
+              "version": "[8.0.6, )"
             },
             "Microsoft.EntityFrameworkCore.SqlServer": {
               "target": "Package",
-              "version": "[7.0.14, )"
+              "version": "[8.0.6, )"
+            },
+            "Microsoft.EntityFrameworkCore.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[8.0.6, )"
             },
             "Swashbuckle.AspNetCore": {
               "target": "Package",
-              "version": "[6.5.0, )"
+              "version": "[6.6.2, )"
             }
           },
           "imports": [
@@ -77,7 +83,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.202\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.202/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

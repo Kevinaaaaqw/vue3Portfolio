@@ -1,2 +1,3 @@
 import Menu from "./src/menu.vue";
-export {Menu}
+import PortfolioMenu from "./src/portfolioMenu.vue";
+export { Menu, PortfolioMenu }
