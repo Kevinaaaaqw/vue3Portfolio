@@ -40,12 +40,12 @@ const router = createRouter({
     },
     //論壇頁面
     {
-      path: '/',
+      path: '/forum',
       name: 'home',
       component: Home
     },
     {
-      path: '/forum',
+      path: '/forum/list',
       name: 'forum',
       component: Forum
     },
@@ -55,7 +55,7 @@ const router = createRouter({
       component: ForumArticle
     },
     {
-      path: '/login',
+      path: '/forum/login',
       name: 'login',
       component: Login
     },
