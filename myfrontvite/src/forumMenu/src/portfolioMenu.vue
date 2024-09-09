@@ -13,8 +13,19 @@ import Menu from "@/components/menu.vue";
         </template>
         <MenuItem>
         <router-link to="/">
-            個人介紹
+            首頁
         </router-link>
         </MenuItem>
+        <MenuItem>
+        <router-link to="/WorkExperience">
+            工作經歷
+        </router-link>
+        </MenuItem>
+        <MenuItem>
+        <!-- <router-link to="/AboutMe">
+            個人介紹
+        </router-link> -->
+        </MenuItem>
+
     </Menu>
 </template>

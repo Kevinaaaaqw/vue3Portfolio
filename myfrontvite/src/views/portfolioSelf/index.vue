@@ -2,7 +2,7 @@
 import { ref, inject, computed, watch } from 'vue'
 </script>
 <template>
-    <div class="flex w-full items-center justify-center gradient min-h-100dvh font-noto pt-20">
+    <div class="flex w-full items-center justify-center gradient min-h-100dvh font-noto">
         <div class="flex flex-wrap md-flex-nowrap justify-center gap-10 md-gap-5 w-full px-5">
             <div
                 class="w-full md-w-40% max-w-400px aspect-[300/400] bg-slate_green_pale flex flex-col gap-6 shadow items-center rounded">

@@ -24,7 +24,7 @@ const forum = computed(() => { })
   <PortfolioMenu class="fixed top-0 w-full z-1" />
   <!-- <Menu /> -->
   <div class="flex justify-center">
-    <RouterView />
+    <RouterView class="pt-100px"/>
   </div>
   <!-- <div class="flex justify-center bg-sub">
     <div :class="{ 'w-full': true, 'max-w-1000px': isFull }">

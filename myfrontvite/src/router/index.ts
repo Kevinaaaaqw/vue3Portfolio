@@ -15,6 +15,16 @@ const router = createRouter({
       component: () => import('../views/portfolioSelf/index.vue')
     },
     {
+      path: '/AboutMe',
+      name: 'portfolioAboutMe',
+      component: () => import('../views/portfolioSelf/aboutMe.vue')
+    },
+    {
+      path: '/WorkExperience',
+      name: 'portfolioWorkExperience',
+      component: () => import('../views/portfolioSelf/workExperience.vue')
+    },
+    {
       path: '/toDoList',
       name: 'toDoList',
       component: () => import('../views/toDoList.vue')

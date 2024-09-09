@@ -8,7 +8,7 @@ import { useRouter } from 'vue-router'
         <div>
             <slot name="logo" />
         </div>
-        <div class="flex gap-2">
+        <div class="flex gap-4">
             <slot />
         </div>
     </div>

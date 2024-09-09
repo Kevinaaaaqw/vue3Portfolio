@@ -35,10 +35,10 @@ export default defineConfig({
             'deep_purple': '#8E44AD',
             'light_lavender': '#F3E5F5',
             'bright_violet': '#9B59B6',
-            'deep_slate_green': '#34495E',
-            'beige_mist': '#ECF0F1',
+            'deep_slate_green': '#34495E',//主色1
+            'beige_mist': '#ECF0F1',//主色2
             'emerald_green': '#27AE60',
-            'slate_green_pale': '#87929d',
+            'slate_green_pale': '#87929d',//輔色
         }
     }
 })
