@@ -21,7 +21,8 @@ export default defineConfig({
     //自訂義綜合class
     shortcuts: {
         'container': 'max-w-1200px mx-auto px-20px w-full',
-        'gradient': 'bg-[linear-gradient(75deg,_#34495E_0%,_#34495E_40%,_rgba(236,240,241,1)_40%)]',
+        'gradient': 'bg-[linear-gradient(90deg,_#34495E_0%,_#34495E_40%,_rgba(236,240,241,1)_40%)]',
+        'btn':'px-3 py-2 rounded cursor-pointer duration-300'
     },
 
     //自訂主題
@@ -37,7 +38,7 @@ export default defineConfig({
             'deep_slate_green': '#34495E',
             'beige_mist': '#ECF0F1',
             'emerald_green': '#27AE60',
-            'slate_green_pale': '#8C9B9D',
+            'slate_green_pale': '#87929d',
         }
     }
 })
