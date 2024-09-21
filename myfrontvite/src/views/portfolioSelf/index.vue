@@ -33,7 +33,7 @@ import { ref, inject, computed, watch } from 'vue'
                             工作經歷
                         </div>
                     </router-link>
-                    <router-link to="/">
+                    <router-link :to="{ name: 'projects' }">
                         <div class="btn bg-base text-white hover:bg-deep_slate_green/50">作品集</div>
                     </router-link>
                 </div>

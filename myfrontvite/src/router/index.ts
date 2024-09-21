@@ -25,6 +25,11 @@ const router = createRouter({
       component: () => import('../views/portfolioSelf/workExperience.vue')
     },
     {
+      path: '/projects',
+      name: 'projects',
+      component: () => import('../views/portfolioSelf/projects.vue')
+    },
+    {
       path: '/toDoList',
       name: 'toDoList',
       component: () => import('../views/toDoList.vue')
