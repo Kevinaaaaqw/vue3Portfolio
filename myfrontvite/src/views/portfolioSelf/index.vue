@@ -27,7 +27,7 @@ import { ref, inject, computed, watch } from 'vue'
                 <div class="text-6xl font-bold mb-6">你好</div>
                 <div class="text-xl font-bold mb-6">這是我的履歷</div>
                 <div class="w-full flex gap-4 mb-15">
-                    <router-link to="/">
+                    <router-link :to="{ name: 'portfolioWorkExperience' }">
                         <div
                             class="btn border-deep_slate_green border-1 border-solid hover:text-blue hover:border-blue">
                             工作經歷

@@ -16,13 +16,66 @@ export default defineConfig({
         }),
     ],
     rules: [
+        [
+            'wave', {
+                position: 'absolute',
+                width: '200vw',
+                height: '200vw',
+                'background-color': '#87929d',
+                opacity: '1',
+                top: '-85vw',
+                left: '50%',
+                'margin-left': '-100vw',
+                'margin-top': '-100vw',
+                'border-radius': '38%',
+                animation: 'wave-animation 15s infinite linear',
+            }
+        ],
+        [
+            'wave_2', {
+                position: 'absolute',
+                width: '200vw',
+                height: '200vw',
+                'background-color': '#34495E',
+                opacity: '.7',
+                top: '115vw',
+                left: '50%',
+                'margin-left': '-100vw',
+                'margin-top': '-100vw',
+                'border-radius': '43%',
+                animation: 'wave-animation-2 20s infinite linear',
+            }
+        ]
+    ],
+    preflights: [
+        {
+            getCSS: () => `
+        @keyframes wave-animation {
+         from {
+            transform: rotate(0deg);
+            }
+        to {
+            transform: rotate(360deg);
+            }
+        }
+        @keyframes wave-animation-2 {
+         from {
+            transform: rotate(360deg);
+            }
+            to {
+            transform: rotate(0deg);
+            }
+        }
+      `,
+        },
     ],
 
     //自訂義綜合class
     shortcuts: {
         'container': 'max-w-1200px mx-auto px-20px w-full',
         'gradient': 'bg-[linear-gradient(90deg,_#34495E_0%,_#34495E_40%,_rgba(236,240,241,1)_40%)]',
-        'btn':'px-3 py-2 rounded cursor-pointer duration-300'
+        'btn': 'px-3 py-2 rounded cursor-pointer duration-300',
+        'divider': "after:content-[''] after:block after:w-full after:h-[2px] after:bg-black after:mt-[32px]"
     },
 
     //自訂主題
