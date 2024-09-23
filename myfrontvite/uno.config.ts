@@ -27,7 +27,7 @@ export default defineConfig({
                 left: '50%',
                 'margin-left': '-100vw',
                 'margin-top': '-100vw',
-                'border-radius': '38%',
+                'border-radius': '45%',
                 animation: 'wave-animation 15s infinite linear',
             }
         ],
@@ -42,8 +42,23 @@ export default defineConfig({
                 left: '50%',
                 'margin-left': '-100vw',
                 'margin-top': '-100vw',
-                'border-radius': '43%',
+                'border-radius': '45%',
                 animation: 'wave-animation-2 20s infinite linear',
+            }
+        ],
+        [
+            'button_bg_slide_end', {
+                'background-position': 'left',
+                color: 'white',
+            }
+        ],
+        [
+            'button_bg_slide_start', {
+                background: 'linear-gradient(to right, #4777a6 50%, transparent 50%)',
+                'background-size': '200%',
+                cursor: 'pointer',
+                transition: 'all 1s ease',
+                'background-position': 'right',
             }
         ]
     ],
@@ -75,7 +90,9 @@ export default defineConfig({
         'container': 'max-w-1200px mx-auto px-20px w-full',
         'gradient': 'bg-[linear-gradient(90deg,_#34495E_0%,_#34495E_40%,_rgba(236,240,241,1)_40%)]',
         'btn': 'px-3 py-2 rounded cursor-pointer duration-300',
-        'divider': "after:content-[''] after:block after:w-full after:h-[2px] after:bg-black after:mt-[32px]"
+        'divider': "after:content-[''] after:block after:w-full after:h-[2px] after:bg-black after:mt-[32px]",
+        'button_bg_slide': 'button_bg_slide_start hover:button_bg_slide_end text-steel_blue'
+
     },
 
     //自訂主題
@@ -90,6 +107,7 @@ export default defineConfig({
             'bright_violet': '#9B59B6',
             'deep_slate_green': '#34495E',//主色1
             'beige_mist': '#ECF0F1',//主色2
+            'steel_blue': '#4777a6',//輔色
             'emerald_green': '#27AE60',
             'slate_green_pale': '#87929d',//輔色
         }

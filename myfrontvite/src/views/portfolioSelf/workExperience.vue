@@ -9,7 +9,7 @@ const secondaryActiveNames_2 = ref()
 <template>
     <div class="w-full flex flex-col gap-10 justify-center bg-slate_green_pale">
         <div class="container accent-black flex flex-col items-center min-h-100dvh gap-10 box-border">
-            <div class="text-6xl mb-5">
+            <div class="text-6xl mb-5 font-bold">
                 履歷
             </div>
             <!-- 工作經歷 -->

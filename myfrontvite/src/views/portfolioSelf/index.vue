@@ -16,7 +16,8 @@ import { ref, inject, computed, watch } from 'vue'
                         <!-- <a href="https://www.instagram.com/kevin19970908/" target="block">
                             <i class="fa-brands fa-instagram fa-2x"></i>
                         </a> -->
-                        <a href="https://www.linkedin.com/in/凱群-黃-8ba411304" target="block">
+                        <a href="https://www.linkedin.com/in/凱群-黃-8ba411304" class="hover:color-slate_green_pale transition-300"
+                            target="block">
                             <i class="fa-brands fa-linkedin fa-2x"></i>
                         </a>
                     </div>
