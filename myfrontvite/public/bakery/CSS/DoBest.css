@@ -365,13 +365,14 @@ input:-webkit-autofill:active {
 }
 .more-grid {
     display: grid;
-    grid-template-columns: 33% 33% 33%;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     box-sizing: border-box;
 }
 
 .more-grid-4 {
     display: grid;
-    grid-template-columns: 25% 25% 25% 25%;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    /* grid-template-columns: 25% 25% 25% 25%; */
     box-sizing: border-box;
 }
 
@@ -423,11 +424,11 @@ input:-webkit-autofill:active {
         box-sizing: border-box;
     } */
 
-    .more-grid-4 {
+    /* .more-grid-4 {
         display: grid;
         grid-template-columns: 33% 33% 33%;
         box-sizing: border-box;
-    }
+    } */
 
     .more-grid-2 {
         display: grid;
