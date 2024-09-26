@@ -6,12 +6,16 @@ import Article from '@/views/Article.vue'
 import Login from '@/views/forum/loginPage.vue'
 import NotFoundPage from '@/views/forum/notFoundPage.vue'
 import Home from '@/views/forum/home.vue'
+import { title } from 'process'
+
+// 已占用 name toDoList
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
     {
       path: '/',
       name: 'portfolioSelf',
+      meta: { title: '履歷空間 - 首頁' },
       component: () => import('../views/portfolioSelf/index.vue')
     },
     {
@@ -22,11 +26,13 @@ const router = createRouter({
     {
       path: '/WorkExperience',
       name: 'portfolioWorkExperience',
+      meta: { title: '履歷空間 - 工作與技能' },
       component: () => import('../views/portfolioSelf/workExperience.vue')
     },
     {
       path: '/projects',
       name: 'projects',
+      meta: { title: '履歷空間 - 作品介紹' },
       component: () => import('../views/portfolioSelf/projects.vue')
     },
     {
@@ -82,8 +88,35 @@ const router = createRouter({
       meta: {
         requiresAuth: false
       }
-    }
+    },
+    //作品集-->toDoList 執行清單
+    {
+      path: '/MyTasks',
+      name: 'toDoListMyTasks',
+      component: import('../views/toDoList/MyTasksView.vue')
+    },
+    {
+      path: '/InProgress',
+      name: 'toDoListInProgress',
+      component: import('../views/toDoList/InProgress.vue')
+    },
+    {
+      path: '/Completed',
+      name: 'toDoListCompleted',
+      component: import('../views/toDoList/CompletedViews.vue')
+    },
   ]
 })
 
+router.beforeEach((to) => {
+  const { title, description } = to.meta;
+  const defaultTitle = '履歷空間';
+  const defaultDescription = '';
+
+  document.title = (title || defaultTitle) as string
+
+  // const descriptionElement = document.querySelector('head meta[name="description"]')
+
+  // descriptionElement.setAttribute('content', description || defaultDescription)
+})
 export default router

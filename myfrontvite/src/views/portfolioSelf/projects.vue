@@ -11,22 +11,29 @@ import { ElCollapse, ElCollapseItem } from 'element-plus'
             <div class="md-text-xl text-center line-height-normal">
                 在這份作品集中，我展示了我在前端開發中使用的技能。每個作品的介紹中，將詳細說明其核心功能和技術細節，讓您更了解我在每個專案中的技術使用與挑戰解決過程。
             </div>
-            <!-- <div
-                class="flex-wrap-reverse md-flex-nowrap bg-beige_mist w-full flex justify-between shadow-xl box-border gap-50px">
+            <div
+                class="flex-wrap md-flex-nowrap bg-beige_mist w-full flex justify-between shadow-xl box-border gap-50px">
                 <div class="flex-grow flex flex-col gap-8">
-                    <a href="/myFront/bakery/DoBest.html" target="_blank" class="w-full h-fit mt-8 button_bg_slide">
-                        <div class="border-s-10 border-solid border-steel_blue h-fit text-2xl ps-4">
+                    <router-link :to="{ name: 'toDoListMyTasks' }" target="_blank"
+                        class="w-full h-fit md-mt-8 button_bg_slide">
+                        <div class="border-s-10 border-solid border-steel_blue h-fit text-2xl px-4 py-2">
                             <div class="font-bold">
-                                資策會小專成果技術展示
+                                To Do List 作品
                             </div>
-                            <div class="font-bold text-lg text-black">
-                                麵包店官方網站
+                            <div class="font-bold text-lg flex justify-between text-black">
+                                <div>
+                                    簡單的線上記事功能網頁
+                                </div>
+                                <div class="text-sm flex items-center md-hidden font-normal">...前往網站</div>
                             </div>
                         </div>
-                    </a>
-                    <div class="ps-6 line-height-normal flex flex-col gap-4">
+                    </router-link>
+                    <div class="px-6 line-height-normal flex flex-col gap-4">
                         <div>
-                            本作品是資展國際前端就業養成班的在學期間作品，旨在測試是否能夠運用基本的 HTML、CSS 和 JavaScript 製作靜態頁面。開發過程大約持續了 40 小時，
+                            依照 <a class="text-blue hover:text-red underline_expand"
+                                href="https://hexschool.github.io/THE_F2E_Design/todolist/#artboard0"
+                                target="_blank">設計圖</a> 做的 to
+                            do list 功能頁面，
                         </div>
                         <div class="grid ">
                             <ul
@@ -34,20 +41,53 @@ import { ElCollapse, ElCollapseItem } from 'element-plus'
                                 <li>
                                     <div>使用技術：</div>
                                     <ul class="[&>li>div]:ps-4">
-                                        <li>基本 HTML 運用</li>
-                                        <li>Bootstrap 5 CSS 框架</li>
-                                        <li>基本 RWD 切版</li>
-                                        <li>JavaScript 基本運用</li>
+                                        <li>pinia 持久化( 存入localStorage )</li>
+                                        <li>vuedraggable 、 UnoCSS 套件使用</li>
+                                        <li>元件(Component)化</li>
+                                    </ul>
+                                </li>
+                            </ul>
+                            <ul
+                                class="ps-4 list-disc [&>li]:mb-4 [&>li>div]:font-bold [&>li>div]:mb-3 [&>li>ul]:ps-4 [&>li>ul_div]:text-sm [&>li>ul]:list-circle [&>li>ul>li]:line-height-8">
+                                <li>
+                                    <div>功能實現：</div>
+                                    <ul class="[&>li>div]:ps-4">
+                                        <li>新增、編輯、刪除代辦事項：
+                                            <div>
+                                               任務下方會依照是否有 完成日、附件、詳細說明顯示圖示。
+                                            </div>
+                                        </li>
+                                        <li>清單排序功能：
+                                            <div>
+                                                sort( )功能，將有標記星號狀態資料排序到上層，已完成狀態排序到底層，其餘不變。
+                                            </div>
+                                        </li>
+                                        <li>拖曳功能，此處使用兩種方式：
+                                            <div>
+                                                引入套件(vuedraggable)後使用draggable元件，功能展示在進行中(In Progress)頁面。<br />
+                                                用drag事件處理拖曳效果，用mouseenter事件對調陣列資料後再呼叫排序功能。
+                                            </div>
+                                        </li>
+                                        <li>檔案上傳功能：
+                                            <div>
+                                                可上傳檔案，但本作品無連接資料庫，只存檔案名稱與上傳時間。
+                                            </div>
+                                        </li>
+                                        <li>檔案上傳時間判斷：
+                                            <div>
+                                                依據檔案上傳時間判斷為幾分鐘前、幾小時前、昨天、兩天前、上傳當日。
+                                            </div>
+                                        </li>
                                     </ul>
                                 </li>
                             </ul>
                         </div>
                     </div>
                 </div>
-                <div class="p-6 max-h-300px max-w-400px flex justify-center items-center overflow-hidden">
-                    <img class="w-full object-contain" src="@/components/icons/backeryDemo.png" alt="">
+                <div class="p-6 w-full md-max-w-400px flex justify-center h-fit overflow-hidden">
+                    <img class="w-full object-contain" src="@/components/icons/ToDoListDemo.png" alt="">
                 </div>
-            </div> -->
+            </div>
             <div
                 class="flex-wrap md-flex-nowrap bg-beige_mist w-full flex justify-between shadow-xl box-border gap-50px">
                 <div class="flex-grow flex flex-col gap-8">

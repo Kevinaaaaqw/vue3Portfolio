@@ -22,7 +22,10 @@
     "unocss": "^0.58.6",
     "vue": "^3.4.21",
     "vue-router": "^4.3.0",
-    "vue3-cookies": "^1.0.6"
+    "vue3-cookies": "^1.0.6",
+    "vuedraggable": "^4.1.0",
+    "pinia-plugin-persistedstate": "^3.2.1",
+    "@vuepic/vue-datepicker": "^8.5.1"
   },
   "devDependencies": {
     "@tsconfig/node20": "^20.1.2",

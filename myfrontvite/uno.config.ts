@@ -60,7 +60,7 @@ export default defineConfig({
                 transition: 'all 1s ease',
                 'background-position': 'right',
             }
-        ]
+        ],
     ],
     preflights: [
         {
@@ -91,8 +91,17 @@ export default defineConfig({
         'gradient': 'bg-[linear-gradient(90deg,_#34495E_0%,_#34495E_40%,_rgba(236,240,241,1)_40%)]',
         'btn': 'px-3 py-2 rounded cursor-pointer duration-300',
         'divider': "after:content-[''] after:block after:w-full after:h-[2px] after:bg-black after:mt-[32px]",
-        'button_bg_slide': 'button_bg_slide_start hover:button_bg_slide_end text-steel_blue'
+        'button_bg_slide': 'button_bg_slide_start hover:button_bg_slide_end text-steel_blue',
+        'underline_expand': 'relative no-underline after:content-[""] after:absolute after:left-50% after:bottom-0 after:w-0 after:h-2px after:bg-black after:hover:w-full after:hover:left-0  after:duration-300',
 
+        //to do list 作品
+        'title': 'font-size-24px text-bg-5 font-roboto font-500 ',
+        'subtitle': 'font-size-20px text-bg-5 font-roboto font-500',
+        'paragraph': 'font-size-16px text-bg-5 font-roboto font-400',
+        'remerk': 'font-size-24px text-bg-3 font-roboto font-400',
+        'placeholder': 'font-size-16px text-bg-3 font-roboto font-400',
+        'status': 'font-size-24px text-bg-2 font-roboto font-italic',
+        'add': 'font-size-24px text-bg-2 font-roboto',
     },
 
     //自訂主題
@@ -110,6 +119,20 @@ export default defineConfig({
             'steel_blue': '#4777a6',//輔色
             'emerald_green': '#27AE60',
             'slate_green_pale': '#87929d',//輔色
+            'base_1': '#4A90E2',
+
+            //to do list 作品
+            //to do list 作品
+            'sub_1': '#00408B',
+            'danger': '#D0021B',
+            'warning': '#F5A623',
+            'choose': '#FFF2DC',
+            'bg-1': '#F2F2F2',
+            'bg-2': '#C8C8C8',
+            'bg-3': '#757575',
+            'bg-4': '#FFFFFF',
+            'bg-5': '#000000',
+            'bg-6': '#E1E1E1',
         }
     }
 })
