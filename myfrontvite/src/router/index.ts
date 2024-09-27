@@ -14,24 +14,24 @@ const router = createRouter({
   routes: [
     {
       path: '/',
-      name: 'portfolioSelf',
+      name: 'homePortfolioSelf',
       meta: { title: '履歷空間 - 首頁' },
       component: () => import('../views/portfolioSelf/index.vue')
     },
     {
       path: '/AboutMe',
-      name: 'portfolioAboutMe',
+      name: 'homePortfolioAboutMe',
       component: () => import('../views/portfolioSelf/aboutMe.vue')
     },
     {
       path: '/WorkExperience',
-      name: 'portfolioWorkExperience',
+      name: 'homePortfolioWorkExperience',
       meta: { title: '履歷空間 - 工作與技能' },
       component: () => import('../views/portfolioSelf/workExperience.vue')
     },
     {
       path: '/projects',
-      name: 'projects',
+      name: 'homeProjects',
       meta: { title: '履歷空間 - 作品介紹' },
       component: () => import('../views/portfolioSelf/projects.vue')
     },
@@ -91,27 +91,37 @@ const router = createRouter({
     },
     //作品集-->toDoList 執行清單
     {
-      path: '/MyTasks',
+      path: '/project2/MyTasks',
       name: 'toDoListMyTasks',
+      meta: { title: '代辦事項 - 所有事項' },
       component: import('../views/toDoList/MyTasksView.vue')
     },
     {
-      path: '/InProgress',
+      path: '/project2/InProgress',
       name: 'toDoListInProgress',
+      meta: { title: '代辦事項 - 進行中' },
       component: import('../views/toDoList/InProgress.vue')
     },
     {
-      path: '/Completed',
+      path: '/project2/Completed',
       name: 'toDoListCompleted',
+      meta: { title: '代辦事項 - 已完成' },
       component: import('../views/toDoList/CompletedViews.vue')
+    },
+    // 作品集 --> 電影清單
+    {
+      path: '/project3/search',
+      name: 'project3Search',
+      meta: { title: 'OMDb電影清單 - 搜尋' },
+      component: import('../views/project3MoveSearch/search.vue')
     },
   ]
 })
 
 router.beforeEach((to) => {
-  const { title, description } = to.meta;
+  const { title } = to.meta;
   const defaultTitle = '履歷空間';
-  const defaultDescription = '';
+  // const defaultDescription = '';
 
   document.title = (title || defaultTitle) as string
 

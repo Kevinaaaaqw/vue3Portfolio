@@ -14,6 +14,60 @@ import { ElCollapse, ElCollapseItem } from 'element-plus'
             <div
                 class="flex-wrap md-flex-nowrap bg-beige_mist w-full flex justify-between shadow-xl box-border gap-50px">
                 <div class="flex-grow flex flex-col gap-8">
+                    <router-link :to="{ name: 'project3Search' }" target="_blank"
+                        class="w-full h-fit md-mt-8 button_bg_slide">
+                        <div class="border-s-10 border-solid border-steel_blue h-fit text-2xl px-4 py-2">
+                            <div class="font-bold">
+                                OMDb 電影搜尋
+                            </div>
+                            <div class="font-bold text-lg flex justify-between text-black">
+                                <div>
+                                    可供搜尋電影 (英文名稱)
+                                </div>
+                                <div class="text-sm flex items-center md-hidden font-normal">...前往網站</div>
+                            </div>
+                        </div>
+                    </router-link>
+                    <div class="px-6 line-height-normal flex flex-col gap-4">
+                        <div>
+                            串接 <a class="text-blue hover:text-red underline_expand" href="https://www.omdbapi.com/"
+                                target="_blank">OMDb API</a> 提供影片搜尋、加入口袋片單功能
+                        </div>
+                        <div class="grid ">
+                            <ul
+                                class="ps-4 list-disc [&>li]:mb-4 [&>li>div]:font-bold [&>li>div]:mb-3 [&>li>ul]:ps-4 [&>li>ul_div]:text-sm [&>li>ul]:list-circle [&>li>ul>li]:line-height-8">
+                                <li>
+                                    <div>使用技術：</div>
+                                    <ul class="[&>li>div]:ps-4">
+                                        <li>pinia 持久化( 存入localStorage )</li>
+                                        <li>API 串接</li>
+                                        <li>element-plus (vue 框架套件)</li>
+                                    </ul>
+                                </li>
+                            </ul>
+                            <ul
+                                class="ps-4 list-disc [&>li]:mb-4 [&>li>div]:font-bold [&>li>div]:mb-3 [&>li>ul]:ps-4 [&>li>ul_div]:text-sm [&>li>ul]:list-circle [&>li>ul>li]:line-height-8">
+                                <li>
+                                    <div>功能實現：</div>
+                                    <ul class="[&>li>div]:ps-4">
+                                        <li>依照電影名稱、發行年分、類型搜尋影片：
+                                            <div>
+                                                依照參數規格送API，資料是依照頁數回傳10筆資料，所以每切換一次頁數跑一次API
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="p-6 w-full md-max-w-400px flex justify-center h-fit overflow-hidden">
+                    <img class="w-full object-contain" src="@/components/icons/ToDoListDemo.png" alt="">
+                </div>
+            </div>
+            <div
+                class="flex-wrap md-flex-nowrap bg-beige_mist w-full flex justify-between shadow-xl box-border gap-50px">
+                <div class="flex-grow flex flex-col gap-8">
                     <router-link :to="{ name: 'toDoListMyTasks' }" target="_blank"
                         class="w-full h-fit md-mt-8 button_bg_slide">
                         <div class="border-s-10 border-solid border-steel_blue h-fit text-2xl px-4 py-2">
@@ -41,6 +95,7 @@ import { ElCollapse, ElCollapseItem } from 'element-plus'
                                 <li>
                                     <div>使用技術：</div>
                                     <ul class="[&>li>div]:ps-4">
+                                        <li>Vue3 組合式</li>
                                         <li>pinia 持久化( 存入localStorage )</li>
                                         <li>vuedraggable 、 UnoCSS 套件使用</li>
                                         <li>元件(Component)化</li>
@@ -54,7 +109,7 @@ import { ElCollapse, ElCollapseItem } from 'element-plus'
                                     <ul class="[&>li>div]:ps-4">
                                         <li>新增、編輯、刪除代辦事項：
                                             <div>
-                                               任務下方會依照是否有 完成日、附件、詳細說明顯示圖示。
+                                                任務下方會依照是否有 完成日、附件、詳細說明顯示圖示。
                                             </div>
                                         </li>
                                         <li>清單排序功能：

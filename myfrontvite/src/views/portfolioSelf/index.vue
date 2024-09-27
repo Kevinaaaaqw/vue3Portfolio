@@ -16,8 +16,8 @@ import { ref, inject, computed, watch } from 'vue'
                         <!-- <a href="https://www.instagram.com/kevin19970908/" target="block">
                             <i class="fa-brands fa-instagram fa-2x"></i>
                         </a> -->
-                        <a href="https://www.linkedin.com/in/凱群-黃-8ba411304" class="hover:color-slate_green_pale transition-300"
-                            target="block">
+                        <a href="https://www.linkedin.com/in/凱群-黃-8ba411304"
+                            class="hover:color-slate_green_pale transition-300" target="block">
                             <i class="fa-brands fa-linkedin fa-2x"></i>
                         </a>
                     </div>
@@ -28,13 +28,13 @@ import { ref, inject, computed, watch } from 'vue'
                 <div class="text-6xl font-bold mb-6">你好</div>
                 <div class="text-xl font-bold mb-6">這是我的履歷</div>
                 <div class="w-full flex gap-4 mb-15">
-                    <router-link :to="{ name: 'portfolioWorkExperience' }">
+                    <router-link :to="{ name: 'homePortfolioWorkExperience' }">
                         <div
                             class="btn border-deep_slate_green border-1 border-solid hover:text-blue hover:border-blue">
                             工作經歷
                         </div>
                     </router-link>
-                    <router-link :to="{ name: 'projects' }">
+                    <router-link :to="{ name: 'homeProjects' }">
                         <div class="btn bg-base text-white hover:bg-deep_slate_green/50">作品集</div>
                     </router-link>
                 </div>

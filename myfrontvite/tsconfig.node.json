@@ -4,6 +4,10 @@
     "src/**/*.ts",
     "src/icons",
     "src/*",
+    "env.d.ts",
+    "src/**/*",
+    "src/**/*.vue",
+    "src/**/*.tsx",
     "vite.config.*",
     "vitest.config.*",
     "cypress.config.*",
@@ -14,6 +18,10 @@
     "composite": true,
     "noEmit": true,
     "tsBuildInfoFile": "./node_modules/.tmp/tsconfig.node.tsbuildinfo",
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["src/*"] // 確保 '@/api/*' 指向正確的路徑
+    },
     "lib": ["dom", "es2015"], // 確保包含 'dom' 和其他所需的 ECMAScript 版本
 
     "module": "ESNext",

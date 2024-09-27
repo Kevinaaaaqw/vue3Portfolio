@@ -25,11 +25,20 @@ const toPage = (path: string) => {
     <div class="w-full bg-base_1 h-80px flex justify-center">
         <div
             class="max-w-310px md-max-w-620px  w-full flex justify-between h-full children:flex children:relative children:items-center children:h-full children:title hover:children:cursor-pointer ">
-            <div :class="checkPath(path, '/MyTasks')" @click="() => { toPage('/MyTasks') }">{{ lang.myTask }}</div>
-            <div :class="checkPath(path, '/InProgress')" @click="() => { toPage('/InProgress') }">{{ lang.inProgress }}
-            </div>
-            <div :class="checkPath(path, '/Completed')" @click="() => { toPage('/Completed') }">{{ lang.completed }}
-            </div>
+            <RouterLink :to="{ name: 'toDoListMyTasks' }">
+                <div :class="checkPath(path, '/MyTasks')">
+                    {{ lang.myTask }}</div>
+            </RouterLink>
+            <RouterLink :to="{ name: 'toDoListInProgress' }">
+                <div :class="checkPath(path, '/InProgress')">
+                    {{ lang.inProgress }}
+                </div>
+            </RouterLink>
+            <RouterLink :to="{ name: 'toDoListCompleted' }">
+                <div :class="checkPath(path, '/Completed')">
+                    {{ lang.completed }}
+                </div>
+            </RouterLink>
         </div>
     </div>
 </template>

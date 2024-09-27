@@ -12,17 +12,17 @@ import Menu from "@/components/menu.vue";
         <template #logo>
         </template>
         <MenuItem>
-        <router-link :to="{ name: 'portfolioSelf' }">
+        <router-link :to="{ name: 'homePortfolioSelf' }">
             首頁
         </router-link>
         </MenuItem>
         <MenuItem>
-        <router-link :to="{ name: 'portfolioWorkExperience' }">
+        <router-link :to="{ name: 'homePortfolioWorkExperience' }">
             工作經歷
         </router-link>
         </MenuItem>
         <MenuItem>
-        <router-link :to="{ name: 'projects' }">
+        <router-link :to="{ name: 'homeProjects' }">
             作品集
         </router-link>
         </MenuItem>

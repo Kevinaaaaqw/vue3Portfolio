@@ -19,7 +19,7 @@ import { sendElNotification } from '@/commonFunction/elnotification'
 const { toDoListSearch, toDoListInsert, toDoListModify, toDoListDelete } = toDoListapi
 
 //畫面控制
-const loading = inject('loading') as Ref<boolean>
+const loading = ref(false)
 
 const dialogModel1 = ref(false)
 const dialogTitleName1 = ref('')
