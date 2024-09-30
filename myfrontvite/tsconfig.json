@@ -17,7 +17,7 @@
       "@/*": ["src/*"] // 確保 '@/api/*' 指向正確的路徑
     },
     "module": "NodeNext",
-    "lib": ["dom", "es2015"] // 確保包含 'dom' 和其他所需的 ECMAScript 版本
+    "lib": ["dom", "es2017"] // 確保包含 'dom' 和其他所需的 ECMAScript 版本
     // "allowJs": true
   }
 }

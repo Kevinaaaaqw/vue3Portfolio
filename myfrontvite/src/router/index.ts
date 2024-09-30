@@ -6,7 +6,6 @@ import Article from '@/views/Article.vue'
 import Login from '@/views/forum/loginPage.vue'
 import NotFoundPage from '@/views/forum/notFoundPage.vue'
 import Home from '@/views/forum/home.vue'
-import { title } from 'process'
 
 // 已占用 name toDoList
 const router = createRouter({

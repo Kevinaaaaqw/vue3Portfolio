@@ -16,7 +16,7 @@
     "composite": true,
     "tsBuildInfoFile": "./node_modules/.tmp/tsconfig.vitest.tsbuildinfo",
 
-    "lib": ["dom", "es2015"], // 確保包含 'dom' 和其他所需的 ECMAScript 版本
+    "lib": ["dom", "es2017"], // 確保包含 'dom' 和其他所需的 ECMAScript 版本
     "types": ["node", "jsdom"]
   }
 }

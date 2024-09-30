@@ -1,4 +1,4 @@
-<script setup lang="ts">
+<!-- <script setup lang="ts">
 import { ref, inject, computed, watch } from 'vue'
 import { useRouter } from 'vue-router'
 import SubMenu from "@/components/sub-menu.vue";
@@ -55,4 +55,4 @@ const handleUpdateShow = (newValue: boolean) => {
         <button @click="menuHandle = true">open</button>
         <button @click="menuHandle = false">close</button>
     </div>
-</template>
+</template> -->

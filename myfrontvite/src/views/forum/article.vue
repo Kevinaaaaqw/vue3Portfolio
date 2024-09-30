@@ -9,7 +9,7 @@ import { forumCategoryApi } from '@/api/forum'
 // 拿參數找文章
 const isArticlesList = ref<boolean>(true)
 const { getArticlesList } = forumCategoryApi
-const query: { ac: string } = useRoute().query
+const query = useRoute().query
 getArticlesList(query).then((i) => {
     console.log(i)
 })
