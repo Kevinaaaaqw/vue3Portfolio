@@ -94,26 +94,32 @@ const router = createRouter({
       path: '/project2/MyTasks',
       name: 'toDoListMyTasks',
       meta: { title: '代辦事項 - 所有事項' },
-      component: import('../views/toDoList/MyTasksView.vue')
+      component: () => import('../views/toDoList/MyTasksView.vue')
     },
     {
       path: '/project2/InProgress',
       name: 'toDoListInProgress',
       meta: { title: '代辦事項 - 進行中' },
-      component: import('../views/toDoList/InProgress.vue')
+      component: () => import('../views/toDoList/InProgress.vue')
     },
     {
       path: '/project2/Completed',
       name: 'toDoListCompleted',
       meta: { title: '代辦事項 - 已完成' },
-      component: import('../views/toDoList/CompletedViews.vue')
+      component: () => import('../views/toDoList/CompletedViews.vue')
     },
     // 作品集 --> 電影清單
     {
       path: '/project3/search',
       name: 'project3Search',
       meta: { title: 'OMDb電影清單 - 搜尋' },
-      component: import('../views/project3MoveSearch/search.vue')
+      component: () => import('../views/project3MovieSearch/search.vue')
+    },
+    {
+      path: '/project3/list',
+      name: 'project3List',
+      meta: { title: 'OMDb電影清單 - 收藏清單' },
+      component: () => import('../views/project3MovieSearch/movieList.vue')
     },
   ]
 })

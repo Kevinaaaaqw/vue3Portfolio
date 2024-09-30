@@ -6,6 +6,7 @@ import { ref, provide, watch, computed } from 'vue'
 import { useMember } from '@/stores/member'
 import { routerPath } from './router/routerPath'
 import MenuList from '@/components/toDolist/MenuList.vue'
+import Project3MovieMenu from '@/components/project3Movie/menu.vue'
 
 //API 功能區
 const { currentRoute } = useRouter()
@@ -29,18 +30,19 @@ const routerCheck = (pathName: string) => {
   <!-- <Menu /> -->
   <!-- 個人介紹 -->
   <PortfolioMenu class="fixed top-0 w-full z-1" v-if="routerCheck('home')" />
-  <div class="flex justify-center" v-if="routerCheck('home')">
+  <div class="flex justify-center box-border" v-if="routerCheck('home')">
     <RouterView class="py-100px" />
   </div>
 
   <!-- toDoList 作品清單  -->
   <MenuList v-if="routerCheck('toDoList')" />
-  <div class="bg-bg-6 w-full flex justify-center min-h-100vh" v-if="routerCheck('toDoList')">
+  <div class="bg-bg-6 w-full flex justify-center box-border min-h-100vh" v-if="routerCheck('toDoList')">
     <RouterView />
   </div>
 
   <!-- 作品 ==> 電影清單  -->
-  <div class="w-full flex justify-center min-h-100vh" v-if="routerCheck('project3')">
+  <Project3MovieMenu v-if="routerCheck('project3')" />
+  <div class="w-full flex justify-center box-border min-h-100vh" v-if="routerCheck('project3')">
     <RouterView />
   </div>
 

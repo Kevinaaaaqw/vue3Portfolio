@@ -11,7 +11,13 @@ export default defineConfig({
                         name: 'Noto Sans SC',
                         weights: ['400', '700'],
                     },
-                ]
+                ],
+                roboto: [
+                    {
+                        name: 'Roboto',
+                        weights: ['400', '500', '700'], // 可根據需要指定其他權重
+                    },
+                ],
             },
         }),
     ],
@@ -87,7 +93,7 @@ export default defineConfig({
 
     //自訂義綜合class
     shortcuts: {
-        'container': 'max-w-1200px mx-auto px-20px w-full',
+        'container': 'max-w-1200px mx-auto px-20px w-full box-border',
         'gradient': 'bg-[linear-gradient(90deg,_#34495E_0%,_#34495E_40%,_rgba(236,240,241,1)_40%)]',
         'btn': 'px-3 py-2 rounded cursor-pointer duration-300',
         'divider': "after:content-[''] after:block after:w-full after:h-[2px] after:bg-black after:mt-[32px]",

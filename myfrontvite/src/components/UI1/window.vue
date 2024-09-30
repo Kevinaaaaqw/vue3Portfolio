@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref, defineProps } from 'vue'
+import { ref } from 'vue'
 
 const props = defineProps<{ description?: string; title?: string }>()
 
@@ -31,12 +31,15 @@ const description = ref(null)
 .border {
   border: solid rgba(74, 74, 74, 0.437) 1px;
 }
+
 .border-b {
   border-bottom: solid rgba(74, 74, 74, 0.437) 1px;
 }
+
 .margin-1rem {
   margin: 0.5rem;
 }
+
 .b-rd {
   border-radius: 0.25rem;
 }
@@ -44,6 +47,7 @@ const description = ref(null)
 .padding-1rem {
   padding: 1rem;
 }
+
 .s {
   display: grid;
   grid-template-columns: 1;
