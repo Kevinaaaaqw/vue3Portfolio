@@ -1,4 +1,4 @@
-import { createRouter, createWebHistory } from 'vue-router'
+import { createRouter, createWebHistory, createWebHashHistory } from 'vue-router'
 import ToDoList from '@/views/toDoList.vue'
 import Forum from '@/views/forum/forum.vue'
 import ForumArticle from '@/views/forum/article.vue'
@@ -9,7 +9,7 @@ import Home from '@/views/forum/home.vue'
 
 // 已占用 name toDoList
 const router = createRouter({
-  history: createWebHistory(import.meta.env.BASE_URL),
+  history: createWebHashHistory(import.meta.env.BASE_URL),
   routes: [
     {
       path: '/',

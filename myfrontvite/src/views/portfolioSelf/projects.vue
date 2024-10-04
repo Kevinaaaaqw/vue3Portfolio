@@ -14,7 +14,7 @@ import { ElCollapse, ElCollapseItem } from 'element-plus'
             <div
                 class="flex-wrap md-flex-nowrap bg-beige_mist w-full flex justify-between shadow-xl box-border gap-50px">
                 <div class="flex-grow flex flex-col gap-8">
-                    <router-link :to="{ name: 'project3Search' }" target="_blank"
+                    <a :href="$router.resolve({ name: 'project3Search' }).href" target="_blank"
                         class="w-full h-fit md-mt-8 button_bg_slide">
                         <div class="border-s-10 border-solid border-steel_blue h-fit text-2xl px-4 py-2">
                             <div class="font-bold">
@@ -27,7 +27,7 @@ import { ElCollapse, ElCollapseItem } from 'element-plus'
                                 <div class="text-sm flex items-center md-hidden font-normal">...前往網站</div>
                             </div>
                         </div>
-                    </router-link>
+                    </a>
                     <div class="px-6 line-height-normal flex flex-col gap-4">
                         <div>
                             串接 <a class="text-blue hover:text-red underline_expand" href="https://www.omdbapi.com/"
@@ -62,13 +62,13 @@ import { ElCollapse, ElCollapseItem } from 'element-plus'
                     </div>
                 </div>
                 <div class="p-6 w-full md-max-w-400px flex justify-center h-fit overflow-hidden">
-                    <img class="w-full object-contain" src="@/components/icons/ToDoListDemo.png" alt="">
+                    <img class="w-full object-contain" src="@/components/icons/omdbDemo.png" alt="">
                 </div>
             </div>
             <div
                 class="flex-wrap md-flex-nowrap bg-beige_mist w-full flex justify-between shadow-xl box-border gap-50px">
                 <div class="flex-grow flex flex-col gap-8">
-                    <router-link :to="{ name: 'toDoListMyTasks' }" target="_blank"
+                    <a :href="$router.resolve({ name: 'toDoListMyTasks' }).href" target="_blank"
                         class="w-full h-fit md-mt-8 button_bg_slide">
                         <div class="border-s-10 border-solid border-steel_blue h-fit text-2xl px-4 py-2">
                             <div class="font-bold">
@@ -81,7 +81,7 @@ import { ElCollapse, ElCollapseItem } from 'element-plus'
                                 <div class="text-sm flex items-center md-hidden font-normal">...前往網站</div>
                             </div>
                         </div>
-                    </router-link>
+                    </a>
                     <div class="px-6 line-height-normal flex flex-col gap-4">
                         <div>
                             依照 <a class="text-blue hover:text-red underline_expand"
@@ -146,7 +146,7 @@ import { ElCollapse, ElCollapseItem } from 'element-plus'
             <div
                 class="flex-wrap md-flex-nowrap bg-beige_mist w-full flex justify-between shadow-xl box-border gap-50px">
                 <div class="flex-grow flex flex-col gap-8">
-                    <a href="/myFront/bakery/DoBest.html" target="_blank" class="w-full h-fit md-mt-8 button_bg_slide">
+                    <a href="./bakery/DoBest.html" target="_blank" class="w-full h-fit md-mt-8 button_bg_slide">
                         <div class="border-s-10 border-solid border-steel_blue h-fit text-2xl px-4 py-2">
                             <div class="font-bold">
                                 資策會小專成果技術展示
