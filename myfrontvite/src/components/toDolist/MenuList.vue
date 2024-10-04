@@ -25,17 +25,20 @@ const toPage = (path: string) => {
     <div class="w-full bg-base_1 h-80px flex justify-center">
         <div
             class="max-w-310px md-max-w-620px  w-full flex justify-between h-full children:flex children:relative children:items-center children:h-full children:title hover:children:cursor-pointer ">
-            <RouterLink class="flex-grow flex justify-center" :to="{ name: 'toDoListMyTasks' }">
-                <div :class="checkPath(path, 'MyTasks')" class="hover:text-white duration-300" >
+            <RouterLink class="flex-grow flex justify-center hover:text-white duration-300"
+                :to="{ name: 'toDoListMyTasks' }">
+                <div :class="checkPath(path, 'MyTasks')">
                     {{ lang.myTask }}</div>
             </RouterLink>
-            <RouterLink class="flex-grow flex justify-center" :to="{ name: 'toDoListInProgress' }">
-                <div :class="checkPath(path, 'InProgress')" class="hover:text-white duration-300" >
+            <RouterLink class="flex-grow flex justify-center hover:text-white duration-300"
+                :to="{ name: 'toDoListInProgress' }">
+                <div :class="checkPath(path, 'InProgress')">
                     {{ lang.inProgress }}
                 </div>
             </RouterLink>
-            <RouterLink class="flex-grow flex justify-center" :to="{ name: 'toDoListCompleted' }">
-                <div :class="checkPath(path, 'Completed')" class="hover:text-white duration-300" >
+            <RouterLink class="flex-grow flex justify-center hover:text-white duration-300"
+                :to="{ name: 'toDoListCompleted' }">
+                <div :class="checkPath(path, 'Completed')">
                     {{ lang.completed }}
                 </div>
             </RouterLink>
