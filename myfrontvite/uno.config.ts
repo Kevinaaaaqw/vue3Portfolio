@@ -101,13 +101,13 @@ export default defineConfig({
         'underline_expand': 'relative no-underline after:content-[""] after:absolute after:left-50% after:bottom-0 after:w-0 after:h-2px after:bg-black after:hover:w-full after:hover:left-0  after:duration-300',
 
         //to do list 作品
-        'title': 'font-size-24px text-bg-5 font-roboto font-500 ',
-        'subtitle': 'font-size-20px text-bg-5 font-roboto font-500',
-        'paragraph': 'font-size-16px text-bg-5 font-roboto font-400',
-        'remerk': 'font-size-24px text-bg-3 font-roboto font-400',
-        'placeholder': 'font-size-16px text-bg-3 font-roboto font-400',
-        'status': 'font-size-24px text-bg-2 font-roboto font-italic',
-        'add': 'font-size-24px text-bg-2 font-roboto',
+        'title': 'font-size-18px md-font-size-24px text-bg-5 font-roboto font-500 ',
+        'subtitle': 'font-size-14px md-font-size-20px text-bg-5 font-roboto font-500',
+        'paragraph': 'font-size-12px md-font-size-16px text-bg-5 font-roboto font-400',
+        'remerk': 'font-size-18px md-font-size-24px text-bg-3 font-roboto font-400',
+        'placeholder': 'font-size-12px md-font-size-16px text-bg-3 font-roboto font-400',
+        'status': 'font-size-18px md-font-size-24px text-bg-2 font-roboto font-italic',
+        'add': 'font-size-18px md-font-size-24px text-bg-2 font-roboto',
     },
 
     //自訂主題

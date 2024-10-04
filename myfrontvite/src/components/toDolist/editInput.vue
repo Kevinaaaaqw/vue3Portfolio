@@ -50,9 +50,14 @@ const deleteWindow = ref(false)
 <template>
     <div class="relative flex flex-wrap w-full post-hr"
         :class="{ 'bg-choose': model?.isImportant, 'h-105px': haveItems, 'h-76px': !haveItems }">
-        <div :class="`w-full h-76px relative flex items-center justify-between children:m-e-3% children:m-s-3%`">
-            <div class="flex h-76px items-center">
-                <ChexkBox v-if="model" v-model="model.isDone" size="md" @change="() => emit('sendStatus')" />
+        <div :class="`w-full h-76px relative flex items-center gap-3 px-3 justify-between`">
+            <div class="ps-2 flex h-76px items-center">
+                <div class="max-md-hidden">
+                    <ChexkBox v-if="model" v-model="model.isDone" size="md" @change="() => emit('sendStatus')" />
+                </div>
+                <div class="md-hidden">
+                    <ChexkBox v-if="model" v-model="model.isDone" size="sm" @change="() => emit('sendStatus')" />
+                </div>
                 <input v-if="model && !props.isTitle" type="text" v-model="model.title"
                     :class="{ 'decoration-line-through': model?.isDone }"
                     class="border-none h-28px focus:outline-none w-150px md:w-400px bg-bg-1/0 title cursor-pointer hover:bg-bg-6 placeholder:title"
@@ -60,7 +65,7 @@ const deleteWindow = ref(false)
 
                 <div v-else>
                     <div :class="{ 'decoration-line-through': model?.isDone }"
-                        class="border-none h-28px focus:outline-none w-150px md:w-400px title relative">
+                        class="border-none h-28px focus:outline-none w-150px md:w-400px title relative flex items-center">
                         <div class="overflow-hidden text-ellipsis" :title="model?.title">
                             {{ model?.title }}
                         </div>
@@ -76,16 +81,16 @@ const deleteWindow = ref(false)
                 </div>
             </div>
             <!-- 圖示狀態 -->
-            <div class="flex items-center gap-2 md-gap-3 children:cursor-pointer">
+            <div class="flex items-center gap-2 md-gap-4 children:cursor-pointer">
                 <div class="w-fit flex items-center justify-center" @click="() => handelisImportant()">
-                    <img v-if="model && model.isImportant" class="w-12px md-w-24px" :src="starSolid" alt="">
-                    <img v-else class="w-12px md-w-24px" :src="starRegular" alt="">
+                    <img v-if="model && model.isImportant" class="w-16px md-w-24px" :src="starSolid" alt="">
+                    <img v-else class="w-16px md-w-24px" :src="starRegular" alt="">
                 </div>
                 <div>
-                    <solidPen v-if="model && model.isEdit" class="font-size-12px md-font-size-24px" />
-                    <solidPenEdit v-else class="font-size-12px md-font-size-24px" @click="() => turnIsEdit()" />
+                    <solidPen v-if="model && model.isEdit" class="font-size-16px md-font-size-24px" />
+                    <solidPenEdit v-else class="font-size-16px md-font-size-24px" @click="() => turnIsEdit()" />
                 </div>
-                <i class="fa-solid fa-trash font-size-12px md-font-size-24px hover:text-red"
+                <i class="fa-solid fa-trash font-size-16px md-font-size-24px hover:text-red"
                     @click="() => { deleteWindow = true; deleteWindowStatus = true }"></i>
             </div>
         </div>
