@@ -67,6 +67,12 @@ export default defineConfig({
                 'background-position': 'right',
             }
         ],
+        [
+            'bg_rock', {
+                background: 'url(@/components/icons/background.png)',
+                'background-repeat': 'repeat',
+            }
+        ],
     ],
     preflights: [
         {
@@ -93,8 +99,8 @@ export default defineConfig({
 
     //自訂義綜合class
     shortcuts: {
-        'container': 'max-w-1200px mx-auto px-20px w-full box-border',
-        'gradient': 'bg-[linear-gradient(90deg,_#34495E_0%,_#34495E_40%,_rgba(236,240,241,1)_40%)]',
+        'container': 'max-w-1200px mx-auto px-2 sm-px-20px w-full box-border',
+        'gradient': 'bg-cover bg-[url(@/components/icons/background.png),linear-gradient(90deg,_#34495E_0%,_#34495E_40%,_rgba(236,240,241,1)_40%)]',
         'btn': 'px-3 py-2 rounded cursor-pointer duration-300',
         'divider': "after:content-[''] after:block after:w-full after:h-[2px] after:bg-black after:mt-[32px]",
         'button_bg_slide': 'button_bg_slide_start hover:button_bg_slide_end text-steel_blue',

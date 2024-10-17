@@ -8,22 +8,21 @@ const secondaryActiveNames_2 = ref()
 </script>
 <template>
     <div class="w-full flex flex-col gap-10 justify-center bg-slate_green_pale">
-        <div class="container accent-black flex flex-col items-center min-h-100dvh gap-10 box-border">
-            <div class="text-6xl mb-5 font-bold">
+        <div class="container accent-black flex flex-col items-center min-h-100dvh gap-3 sm-gap-10 box-border">
+            <div class="text-4xl sm-text-6xl sm-mb-5 font-bold">
                 履歷
             </div>
             <!-- 工作經歷 -->
-            <div class="w-full flex flex-col items-center gap-10">
+            <div class="w-full flex flex-col items-center gap-3 sm-gap-10">
                 <div class="w-full">
-                    <div class="text-3xl font-bold">
+                    <div class="text-xl sm-text-3xl font-bold">
                         相關工作經驗
                     </div>
                     <div class="text-2xl">
-
                     </div>
                 </div>
                 <div
-                    class="flex-wrap md-flex-nowrap bg-beige_mist w-full flex justify-between p-10 shadow-xl box-border gap-50px">
+                    class="flex-wrap md-flex-nowrap bg-beige_mist w-full flex justify-between rounded-1 p-5 sm-p-10 shadow-xl box-border gap-50px">
                     <div class="w-full md-w-30% max-md:divider max-md:mb--32px">
                         <div class="mb-4"><span class="text-blue text-xl font-bold">2024.6 - 2024.9</span></div>
                         <div class="text-xl mb-4">台中市</div>
@@ -41,7 +40,7 @@ const secondaryActiveNames_2 = ref()
                     </div>
                 </div>
                 <div
-                    class="flex-wrap md-flex-nowrap bg-beige_mist w-full flex justify-between p-10 shadow-xl box-border gap-50px">
+                    class="flex-wrap md-flex-nowrap bg-beige_mist w-full flex justify-between rounded-1 p-5 sm-p-10 shadow-xl box-border gap-50px">
                     <div class="w-full md-w-30% max-md:divider max-md:mb--32px">
                         <div class="mb-4"><span class="text-blue text-xl font-bold">2023.9 - 2024.5</span></div>
                         <div class="text-xl mb-4">台中市</div>
@@ -62,7 +61,7 @@ const secondaryActiveNames_2 = ref()
                 </div>
             </div>
             <!-- 求學經歷 -->
-            <div class="w-full flex flex-col items-center gap-10">
+            <div class="w-full flex flex-col items-center gap-3 sm-gap-10">
                 <div class="w-full">
                     <div class="text-3xl font-bold">
                         學習經歷
@@ -72,7 +71,7 @@ const secondaryActiveNames_2 = ref()
                     </div>
                 </div>
                 <div
-                    class="flex-wrap md-flex-nowrap bg-beige_mist w-full flex justify-between p-10 shadow-xl box-border gap-50px">
+                    class="flex-wrap md-flex-nowrap bg-beige_mist w-full flex justify-between rounded-1 p-5 sm-p-10 shadow-xl box-border gap-50px">
                     <div class="w-full md-w-30% max-md:divider max-md:mb--32px">
                         <div class="mb-4"><span class="text-blue text-xl font-bold">2023.3 - 2023.8</span></div>
                         <div class="text-xl mb-4">資展國際 前端就業養成班</div>
@@ -85,7 +84,7 @@ const secondaryActiveNames_2 = ref()
                     </div>
                 </div>
                 <div
-                    class="flex-wrap md-flex-nowrap bg-beige_mist w-full flex justify-between p-10 shadow-xl box-border gap-50px">
+                    class="flex-wrap md-flex-nowrap bg-beige_mist w-full flex justify-between rounded-1 p-5 sm-p-10 shadow-xl box-border gap-50px">
                     <div class="w-full md-w-30% max-md:divider max-md:mb--32px">
                         <div class="mb-4"><span class="text-blue text-xl font-bold">2016.9 - 2020.7</span></div>
                         <div class="text-xl mb-4">中國文化大學</div>
@@ -93,27 +92,27 @@ const secondaryActiveNames_2 = ref()
                         <div class="">臺北市11114陽明山華岡路55號</div>
                     </div>
                     <div class="w-full md-w-70% line-height-normal pt-1rem">
-                        進行有關土壤鹽鹼化對植物影響及生物炭施用對鹽鹼土壤中植物產量與品質影響的實驗論文研究與資料蒐集。<br />
-                        實習期間，協助農業改良場進行穀類食物加工方法與抗性澱粉生成的相關研究。<br />
+                        進行有關土壤鹽鹼化對植物影響及生物炭施用對鹽鹼土壤中植物產量與品質影響的實驗論文研究與資料蒐集。<br /><br />
+                        實習期間，協助農業改良場進行穀類食物加工方法與抗性澱粉生成的相關研究。<br /><br />
                         擔任三屆大莊館宿舍館長，指揮幹部以及處理住宿生事務，並協助校方舉辦防災演練與座談會等活動。
                     </div>
                 </div>
             </div>
             <!-- 相關證照 -->
-            <div class="w-full flex flex-col items-center gap-10">
+            <div class="w-full flex flex-col items-center gap-3 sm-gap-10">
                 <div class="bg-beige_mist w-full flex flex-col p-10 shadow-xl box-border gap-40px">
                     <el-collapse v-model="primaryActiveNames"
                         class="[&_.el-collapse-item\_\_header]:bg-beige_mist [&_.el-collapse-item\_\_header]:text-start  [&_.el-collapse-item\_\_header]:h-fit [&_.el-collapse-item\_\_header]:mb-4 [&_.el-collapse-item\_\_content]:bg-beige_mist">
                         <el-collapse-item name="1" class="[&>button]:transition-300 hover:[&>button]:text-blue">
                             <template #title>
-                                <div class="text-3xl font-bold">
+                                <div class="text-xl sm-text-3xl font-bold">
                                     相關證照
                                 </div>
                             </template>
                             <el-collapse class="ps-4" v-model="secondaryActiveNames_1" accordion>
                                 <el-collapse-item name="1" class="[&>button]:transition-300 hover:[&>button]:text-blue">
                                     <template #title>
-                                        <div class="text-2xl">ITS 網路安全管理核心能力</div>
+                                        <div class="text-lg sm-text-2xl">ITS 網路安全管理核心能力</div>
                                     </template>
                                     <div><img class="w-full max-w-400px object-contain"
                                             src="@/components/icons/information_technology_specialist.png"
@@ -122,7 +121,7 @@ const secondaryActiveNames_2 = ref()
                                 </el-collapse-item>
                                 <el-collapse-item name="2" class="[&>button]:transition-300 hover:[&>button]:text-blue">
                                     <template #title>
-                                        <div class="text-2xl">Cisco_CCST</div>
+                                        <div class="text-lg sm-text-2xl">Cisco_CCST</div>
                                     </template>
                                     <div><img class="w-full max-w-400px object-contain"
                                             src="@/components/icons/Cisco_CCST.png" alt="網路安全管理核心能力證照圖">
@@ -133,16 +132,16 @@ const secondaryActiveNames_2 = ref()
                         </el-collapse-item>
                         <el-collapse-item name="2" class="[&>button]:transition-300 hover:[&>button]:text-blue">
                             <template #title>
-                                <div class="text-3xl font-bold">
+                                <div class="text-xl sm-text-3xl font-bold">
                                     程式語言與技能
                                 </div>
                             </template>
                             <el-collapse class="ps-4" v-model="secondaryActiveNames_2" accordion>
                                 <el-collapse-item name="1" class="[&>button]:transition-300 hover:[&>button]:text-blue">
                                     <template #title>
-                                        <div class="text-xl">Vue 3 組合式</div>
+                                        <div class="text-lg sm-text-xl">Vue 3 組合式</div>
                                     </template>
-                                    <div class="ps-4 text-lg">
+                                    <div class="ps-4 sm-text-lg">
                                         <ul
                                             class="[&>li]:mb-4 [&>li>div]:font-bold [&>li>div]:mb-3 [&>li>ul]:ps-4 [&>li>ul]:list-circle [&>li>ul>li]:line-height-8">
                                             <li>
@@ -178,9 +177,9 @@ const secondaryActiveNames_2 = ref()
                                 </el-collapse-item>
                                 <el-collapse-item name="2" class="[&>button]:transition-300 hover:[&>button]:text-blue">
                                     <template #title>
-                                        <div class="text-xl">React</div>
+                                        <div class="text-lg sm-text-xl">React</div>
                                     </template>
-                                    <div class="ps-4 text-lg">
+                                    <div class="ps-4 sm-text-lg">
                                         <ul
                                             class="[&>li]:mb-4 [&>li>div]:font-bold [&>li>div]:mb-3 [&>li>ul]:ps-4 [&>li>ul]:list-circle [&>li>ul>li]:line-height-8">
                                             <li>
@@ -207,9 +206,9 @@ const secondaryActiveNames_2 = ref()
                                 </el-collapse-item>
                                 <el-collapse-item name="3" class="[&>button]:transition-300 hover:[&>button]:text-blue">
                                     <template #title>
-                                        <div class="text-xl">TypeScript</div>
+                                        <div class="text-lg sm-text-xl">TypeScript</div>
                                     </template>
-                                    <div class="ps-4 text-lg">
+                                    <div class="ps-4 sm-text-lg">
                                         <ul
                                             class="[&>li]:mb-4 [&>li>div]:font-bold [&>li>div]:mb-3 [&>li>ul]:ps-4 [&>li>ul]:list-circle [&>li>ul>li]:line-height-8">
                                             <li>
@@ -237,9 +236,9 @@ const secondaryActiveNames_2 = ref()
                                 </el-collapse-item>
                                 <el-collapse-item name="4" class="[&>button]:transition-300 hover:[&>button]:text-blue">
                                     <template #title>
-                                        <div class="text-xl">JavaScript 語法糖</div>
+                                        <div class="text-lg sm-text-xl">JavaScript 語法糖</div>
                                     </template>
-                                    <div class="ps-4 text-lg">
+                                    <div class="ps-4 sm-text-lg">
                                         <ul
                                             class="[&>li]:mb-4 [&>li>div]:font-bold [&>li>div]:mb-3 [&>li>ul]:ps-4 [&>li>ul]:list-circle [&>li>ul>li]:line-height-8">
                                             <li>
@@ -284,9 +283,9 @@ const secondaryActiveNames_2 = ref()
                                 </el-collapse-item>
                                 <el-collapse-item name="5" class="[&>button]:transition-300 hover:[&>button]:text-blue">
                                     <template #title>
-                                        <div class="text-xl">專案架構</div>
+                                        <div class="text-lg sm-text-xl">專案架構</div>
                                     </template>
-                                    <div class="ps-4 text-lg">
+                                    <div class="ps-4 sm-text-lg">
                                         <ul
                                             class="[&>li]:mb-4 [&>li>div]:font-bold [&>li>div]:mb-3 [&>li>ul]:ps-4 [&>li>ul]:list-circle [&>li>ul>li]:line-height-8">
                                             <li>

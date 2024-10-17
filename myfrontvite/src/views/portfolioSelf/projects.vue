@@ -12,7 +12,68 @@ import { ElCollapse, ElCollapseItem } from 'element-plus'
                 在這份作品集中，我展示了我在前端開發中使用的技能。每個作品的介紹中，將詳細說明其核心功能和技術細節，讓您更了解我在每個專案中的技術使用與挑戰解決過程。
             </div>
             <div
-                class="flex-wrap md-flex-nowrap bg-beige_mist w-full flex justify-between shadow-xl box-border gap-50px">
+                class="flex-wrap md-flex-nowrap bg-beige_mist w-full flex justify-between shadow-xl box-border gap-50px rounded-1">
+                <div class="flex-grow flex flex-col gap-8">
+                    <a href="https://60-seconds-reatomized.pages.dev/" target="_blank"
+                        class="w-full h-fit md-mt-8 button_bg_slide">
+                        <div class="border-s-10 border-solid border-steel_blue h-fit text-2xl px-4 py-2">
+                            <div class="font-bold">
+                                遊戲： 60-seconds-reatomized 全成就攻略
+                            </div>
+                            <div class="font-bold text-lg flex justify-between text-black flex-wrap gap-3">
+                                <div>
+                                    想完成 Steam 所有成就的用戶查找攻略的網站
+                                </div>
+                                <div class="text-sm flex items-center md-hidden font-normal">...前往網站</div>
+                            </div>
+                        </div>
+                    </a>
+                    <div class="px-6 line-height-normal flex flex-col gap-4">
+                        <div>
+                            利用Cloudflare建置一個免費網站並提供一個可以看所有物品與相關遊戲事件故事，也可以查看Steam所有成就攻略。
+                        </div>
+                        <div class="grid ">
+                            <ul
+                                class="ps-4 list-disc [&>li]:mb-4 [&>li>div]:font-bold [&>li>div]:mb-3 [&>li>ul]:ps-4 [&>li>ul_div]:text-sm [&>li>ul]:list-circle [&>li>ul>li]:line-height-8">
+                                <li>
+                                    <div>使用技術：</div>
+                                    <ul class="[&>li>div]:ps-4">
+                                        <li>Firebase 資料庫</li>
+                                        <li>Cloudflare 網站建置</li>
+                                        <li>Vue Router</li>
+                                        <li>element-plus (vue 框架套件)</li>
+                                        <li>quill 富文本</li>
+                                    </ul>
+                                </li>
+                            </ul>
+                            <ul
+                                class="ps-4 list-disc [&>li]:mb-4 [&>li>div]:font-bold [&>li>div]:mb-3 [&>li>ul]:ps-4 [&>li>ul_div]:text-sm [&>li>ul]:list-circle [&>li>ul>li]:line-height-8">
+                                <li>
+                                    <div>功能實現：</div>
+                                    <ul class="[&>li>div]:ps-4">
+                                        <li>使用資料庫串接資料：
+                                            <div>
+                                                用Firebase 資料庫儲存 quill 富文本所編寫的文章，並呈現到前端頁面，可以在後台登入後編輯文章。
+                                            </div>
+                                        </li>
+                                        <li>利用CSS 相關效果：
+                                            <div>
+                                                利用 background-attachment：fiexd 並動態調整位置製造出另類的圖片呈現方式。<br>
+                                                研究官網的CSS並嘗試複刻出文字效果。
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="p-6 w-full md-max-w-400px flex justify-center h-fit overflow-hidden">
+                    <img class="w-full object-contain" src="@/components/icons/game_logo_sh.png" alt="">
+                </div>
+            </div>
+            <div
+                class="flex-wrap md-flex-nowrap bg-beige_mist w-full flex justify-between shadow-xl box-border gap-50px rounded-1">
                 <div class="flex-grow flex flex-col gap-8">
                     <a :href="$router.resolve({ name: 'project3Search' }).href" target="_blank"
                         class="w-full h-fit md-mt-8 button_bg_slide">
@@ -20,7 +81,7 @@ import { ElCollapse, ElCollapseItem } from 'element-plus'
                             <div class="font-bold">
                                 OMDb 電影搜尋
                             </div>
-                            <div class="font-bold text-lg flex justify-between text-black">
+                            <div class="font-bold text-lg flex justify-between text-black flex-wrap gap-3">
                                 <div>
                                     可供搜尋電影 (英文名稱)
                                 </div>
@@ -66,7 +127,7 @@ import { ElCollapse, ElCollapseItem } from 'element-plus'
                 </div>
             </div>
             <div
-                class="flex-wrap md-flex-nowrap bg-beige_mist w-full flex justify-between shadow-xl box-border gap-50px">
+                class="flex-wrap md-flex-nowrap bg-beige_mist w-full flex justify-between shadow-xl box-border gap-50px rounded-1">
                 <div class="flex-grow flex flex-col gap-8">
                     <a :href="$router.resolve({ name: 'toDoListMyTasks' }).href" target="_blank"
                         class="w-full h-fit md-mt-8 button_bg_slide">
@@ -74,7 +135,7 @@ import { ElCollapse, ElCollapseItem } from 'element-plus'
                             <div class="font-bold">
                                 To Do List 作品
                             </div>
-                            <div class="font-bold text-lg flex justify-between text-black">
+                            <div class="font-bold text-lg flex justify-between text-black flex-wrap gap-3">
                                 <div>
                                     簡單的線上記事功能網頁
                                 </div>
@@ -144,14 +205,14 @@ import { ElCollapse, ElCollapseItem } from 'element-plus'
                 </div>
             </div>
             <div
-                class="flex-wrap md-flex-nowrap bg-beige_mist w-full flex justify-between shadow-xl box-border gap-50px">
+                class="flex-wrap md-flex-nowrap bg-beige_mist w-full flex justify-between shadow-xl box-border gap-50px rounded-1">
                 <div class="flex-grow flex flex-col gap-8">
                     <a href="./bakery/DoBest.html" target="_blank" class="w-full h-fit md-mt-8 button_bg_slide">
                         <div class="border-s-10 border-solid border-steel_blue h-fit text-2xl px-4 py-2">
                             <div class="font-bold">
                                 資策會小專成果技術展示
                             </div>
-                            <div class="font-bold text-lg flex justify-between text-black">
+                            <div class="font-bold text-lg flex justify-between text-black flex-wrap gap-3">
                                 <div>
                                     麵包店官方網站
                                 </div>

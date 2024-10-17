@@ -1,12 +1,13 @@
 <script setup lang="ts">
 import { RouterView, useRouter, RouterLink, useRoute } from 'vue-router'
 import { Menu, PortfolioMenu } from './forumMenu'
-import ForunFooter from './forumFooter'
+import ForumFooter from './forumFooter'
 import { ref, provide, watch, computed } from 'vue'
 import { useMember } from '@/stores/member'
 import { routerPath } from './router/routerPath'
 import MenuList from '@/components/toDolist/MenuList.vue'
 import Project3MovieMenu from '@/components/project3Movie/menu.vue'
+import PportfolioSelfFooter from '@/components/portfolioSelf/footer.vue'
 
 //API 功能區
 const { currentRoute } = useRouter()
@@ -33,6 +34,7 @@ const routerCheck = (pathName: string) => {
   <div class="flex justify-center box-border" v-if="routerCheck('home')">
     <RouterView class="py-100px" />
   </div>
+  <PportfolioSelfFooter class="" v-if="routerCheck('home')" />
 
   <!-- toDoList 作品清單  -->
   <MenuList v-if="routerCheck('toDoList')" />
