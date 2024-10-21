@@ -69,7 +69,9 @@ import { ElCollapse, ElCollapseItem } from 'element-plus'
                     </div>
                 </div>
                 <div class="p-6 w-full md-max-w-400px flex justify-center h-fit overflow-hidden">
-                    <img class="w-full object-contain" src="@/components/icons/game_logo_sh.png" alt="">
+                    <a href="https://60-seconds-reatomized.pages.dev/" target="_blank">
+                        <img class="w-full object-contain" src="@/components/icons/game_logo_sh.png" alt="">
+                    </a>
                 </div>
             </div>
             <div
@@ -123,7 +125,9 @@ import { ElCollapse, ElCollapseItem } from 'element-plus'
                     </div>
                 </div>
                 <div class="p-6 w-full md-max-w-400px flex justify-center h-fit overflow-hidden">
-                    <img class="w-full object-contain" src="@/components/icons/omdbDemo.png" alt="">
+                    <a :href="$router.resolve({ name: 'project3Search' }).href" target="_blank">
+                        <img class="w-full object-contain" src="@/components/icons/omdbDemo.png" alt="">
+                    </a>
                 </div>
             </div>
             <div
@@ -201,7 +205,9 @@ import { ElCollapse, ElCollapseItem } from 'element-plus'
                     </div>
                 </div>
                 <div class="p-6 w-full md-max-w-400px flex justify-center h-fit overflow-hidden">
-                    <img class="w-full object-contain" src="@/components/icons/ToDoListDemo.png" alt="">
+                    <a :href="$router.resolve({ name: 'toDoListMyTasks' }).href" target="_blank">
+                        <img class="w-full object-contain" src="@/components/icons/ToDoListDemo.png" alt="">
+                    </a>
                 </div>
             </div>
             <div
@@ -280,7 +286,9 @@ import { ElCollapse, ElCollapseItem } from 'element-plus'
                     </div>
                 </div>
                 <div class="p-6 w-full md-max-w-400px flex justify-center h-fit overflow-hidden">
-                    <img class="w-full object-contain" src="@/components/icons/backeryDemo.png" alt="">
+                    <a href="./bakery/DoBest.html" target="_blank">
+                        <img class="w-full object-contain" src="@/components/icons/backeryDemo.png" alt="">
+                    </a>
                 </div>
             </div>
         </div>
